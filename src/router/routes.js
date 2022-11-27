@@ -12,10 +12,22 @@ const routes = [
     component: () => import("../views/dashboard.vue"),
   },
   {
-    path: "/calendar",
-    name: "Calendar",
+    path: "/product",
+    name: "Product",
     meta: { authorized: true },
-    component: () => import("../views/calendar.vue"),
+    component: () => import("../views/product.vue"),
+  },
+  {
+    path: "/cart",
+    name: "Cart",
+    meta: { authorized: true },
+    component: () => import("../views/cart.vue"),
+  },
+  {
+    path: "/search",
+    name: "Search",
+    meta: { authorized: true },
+    component: () => import("../views/search.vue"),
   },
 ];
 export default routes;

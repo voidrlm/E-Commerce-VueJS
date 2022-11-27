@@ -41,7 +41,9 @@ export default {
     showNavbarDrawer: true,
     items: [
       { title: "Dashboard", icon: "mdi-home", route: "/dashboard" },
-      { title: "Calendar", icon: "mdi-calendar-blank", route: "/calendar" },
+      { title: "Product", icon: "mdi-alert", route: "/product" },
+      { title: "Cart", icon: "mdi-cart", route: "/cart" },
+      { title: "Search", icon: "mdi-calendar-blank", route: "/search" },
     ],
   }),
 };
