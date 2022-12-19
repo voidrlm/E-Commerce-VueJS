@@ -70,7 +70,7 @@
               >
                 <h1 class="text-center font-size">Top Picks</h1>
                 <div class="text-center">
-                  <v-btn href="/shop" class="white--text" outlined
+                  <v-btn to="/search" class="white--text" outlined
                     >SHOP NOW</v-btn
                   >
                 </div>
@@ -87,7 +87,7 @@
               >
                 <h1 class="text-center font-size">New Arrivals</h1>
                 <div class="text-center">
-                  <v-btn href="/shop" class="white--text" outlined
+                  <v-btn to="/search" class="white--text" outlined
                     >SHOP NOW</v-btn
                   >
                 </div>
@@ -106,7 +106,7 @@
               >
                 <h1 class="text-center font-size">Lorem & Ipsum</h1>
                 <div class="text-center mt-2">
-                  <v-btn class="white--text caption" href="/shop" text
+                  <v-btn class="white--text caption" to="/search" text
                     >SHOP NOW
                     <v-icon class="white--text caption"
                       >mdi-arrow-right</v-icon
@@ -126,7 +126,7 @@
               >
                 <h1 class="text-center font-size">Lorem & Ipsum</h1>
                 <div class="text-center mt-2">
-                  <v-btn class="white--text caption" href="/shop" text
+                  <v-btn class="white--text caption" to="/search" text
                     >SHOP NOW
                     <v-icon class="white--text caption"
                       >mdi-arrow-right</v-icon
@@ -146,7 +146,7 @@
               >
                 <h1 class="text-center font-size">Lorem & Ipsum</h1>
                 <div class="text-center mt-2">
-                  <v-btn class="white--text caption" href="/shop" text
+                  <v-btn class="white--text caption" to="/search" text
                     >SHOP NOW
                     <v-icon class="white--text caption"
                       >mdi-arrow-right</v-icon
@@ -182,7 +182,7 @@
 
                         <div class="text-center">
                           <v-btn
-                            href="/shop"
+                            to="/search"
                             class="ma-2"
                             outlined
                             color="info"
@@ -211,7 +211,7 @@
 
                         <div class="text-center">
                           <v-btn
-                            href="/shop"
+                            to="/search"
                             class="ma-2"
                             outlined
                             color="info"
@@ -240,7 +240,7 @@
 
                         <div class="text-center">
                           <v-btn
-                            href="/shop"
+                            to="/search"
                             class="ma-2"
                             outlined
                             color="info"
@@ -269,7 +269,7 @@
 
                         <div class="text-center">
                           <v-btn
-                            href="/shop"
+                            to="/search"
                             class="ma-2"
                             outlined
                             color="info"
