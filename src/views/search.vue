@@ -158,40 +158,32 @@
           <div class="row text-center">
             <div
               class="col-md-3 col-sm-6 col-xs-12"
-              :key="pro.id"
-              v-for="pro in products"
+              v-for="(pro, index) in products"
+              :key="index"
             >
-              <v-hover v-slot:default="{ hover }">
-                <v-card class="mx-auto" color="grey lighten-4" max-width="600">
-                  <v-img
-                    class="white--text align-end"
-                    :aspect-ratio="16 / 9"
-                    height="200px"
-                    :src="pro.src"
-                  >
-                    <v-card-title>{{ pro.type }} </v-card-title>
-                    <v-expand-transition>
-                      <div
-                        v-if="hover"
-                        class="transition-fast-in-fast-out white darken-2 v-card--reveal display-3 white--text"
-                        style="height: 100%"
-                      >
-                        <v-btn v-if="hover" href="/product" class="" outlined
-                          >VIEW</v-btn
-                        >
-                      </div>
-                    </v-expand-transition>
-                  </v-img>
-                  <v-card-text>
-                    <div>
-                      <a href="/product" style="text-decoration: none">{{
-                        pro.name
-                      }}</a>
-                    </div>
-                    <div>${{ pro.price }}</div>
-                  </v-card-text>
-                </v-card>
-              </v-hover>
+              <v-card
+                class="mx-auto"
+                color="grey lighten-4"
+                max-width="600"
+                to="/product"
+              >
+                <v-img
+                  class="white--text align-end"
+                  :aspect-ratio="16 / 9"
+                  height="200px"
+                  :src="pro.src"
+                >
+                  <v-card-title>{{ pro.type }} </v-card-title>
+                </v-img>
+                <v-card-text>
+                  <div>
+                    <a to="/product" style="text-decoration: none">{{
+                      pro.name
+                    }}</a>
+                  </div>
+                  <div>${{ pro.price }}</div>
+                </v-card-text>
+              </v-card>
             </div>
           </div>
           <div class="text-center mt-12">
@@ -230,17 +222,17 @@ export default {
       {
         text: "Home",
         disabled: false,
-        href: "breadcrumbs_home",
+        to: "dashboard",
       },
       {
         text: "Clothing",
         disabled: false,
-        href: "breadcrumbs_clothing",
+        to: "breadcrumbs_clothing",
       },
       {
         text: "T-Shirts",
         disabled: true,
-        href: "breadcrumbs_shirts",
+        to: "breadcrumbs_shirts",
       },
     ],
     min: 0,
