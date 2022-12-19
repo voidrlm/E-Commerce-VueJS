@@ -5,10 +5,6 @@
     dense
     flat
   >
-    <v-app-bar-nav-icon
-      @click.stop="$emit('openCloseNavBar')"
-    ></v-app-bar-nav-icon>
-
     <v-spacer></v-spacer>
     <span
       @click="showClock = true"
