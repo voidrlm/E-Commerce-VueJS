@@ -4,9 +4,29 @@
     app
     class="pa-3"
   >
-    <v-card-title v-if="!$vuetify.breakpoint.xsOnly" class="text-h5 mt-n5"
+    <v-btn
+      v-if="$router.currentRoute.path !== '/dashboard'"
+      class="mt-n5 ml-n6"
+      icon
+      @click="$router.go(-1)"
+      ><v-icon>mdi-chevron-left-circle</v-icon></v-btn
+    >
+    <v-card-title
+      v-if="!$vuetify.breakpoint.xsOnly"
+      class="text-h5 mt-n5 ml-n4"
+      :style="'cursor:pointer'"
+      @click="routeToDashboard()"
       >Store</v-card-title
     >
+    <v-btn
+      class="mt-n5 ml-n6"
+      :class="$vuetify.breakpoint.xsOnly ? 'mr-5' : ''"
+      v-if="$vuetify.breakpoint.xsOnly"
+      icon
+      @click="routeToDashboard()"
+      ><v-icon size="40">mdi-home-circle</v-icon></v-btn
+    >
+
     <v-spacer />
     <v-text-field
       placeholder="Search store"
@@ -45,6 +65,14 @@ export default {
   beforeUnmount() {
     clearInterval(this.timer);
   },
-  methods: {},
+  methods: {
+    routeToDashboard() {
+      if (this.$router.currentRoute.path !== "/dashboard") {
+        this.$router.push({
+          path: "/dashboard",
+        });
+      }
+    },
+  },
 };
 </script>
