@@ -1,30 +1,20 @@
 <template>
-  <div>
+  <div class="mt-n5">
     <v-menu offset-y :nudge-width="200">
       <template v-slot:activator="{ on, attrs }">
-        <v-chip
-          v-bind="attrs"
-          v-on="on"
-          class="ml-2 mr-n2 font-weight-bold"
-          :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
-          :color="$vuetify.theme.dark ? 'grey darken-3' : 'accent'"
-        >
-          <v-avatar class="mr-2">
-            <v-img
-              :src="
-                $store.getters.currentUser.avatar
-                  ? $store.getters.currentUser.avatar
-                  : {
-                      src: require('../../assets/defaultAvatar.png'),
-                      text: 'Default Avatar',
-                      extra: 'Avatar',
-                    }
-              "
-            />
-          </v-avatar>
-          {{ $store.getters.currentUser.name }}
-          <v-icon right size="20"> mdi-chevron-down </v-icon>
-        </v-chip>
+        <v-avatar v-bind="attrs" v-on="on" size="35">
+          <v-img
+            :src="
+              $store.getters.currentUser.avatar
+                ? $store.getters.currentUser.avatar
+                : {
+                    src: require('../../assets/defaultAvatar.png'),
+                    text: 'Default Avatar',
+                    extra: 'Avatar',
+                  }
+            "
+          />
+        </v-avatar>
       </template>
       <v-list>
         <v-list-item>
