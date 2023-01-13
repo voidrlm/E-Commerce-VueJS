@@ -4,42 +4,18 @@
       <v-carousel-item
         :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
       >
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
-          </div>
-          <br />
-        </v-row>
+      </v-carousel-item>
+      <v-carousel-item
+        :src="'https://img.freepik.com/free-psd/sale-banner-template_24972-824.jpg?w=1800&t=st=1673596377~exp=1673596977~hmac=af31f567d846ef3fbc17f77167ddf6cce2039f0062fbceab2ca3f1d359ece34c'"
+      >
       </v-carousel-item>
       <v-carousel-item
         :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
       >
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
-          </div>
-          <br />
-        </v-row>
       </v-carousel-item>
       <v-carousel-item
         :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
       >
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
-          </div>
-          <br />
-        </v-row>
-      </v-carousel-item>
-      <v-carousel-item
-        :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-      >
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
-          </div>
-          <br />
-        </v-row>
       </v-carousel-item>
     </v-carousel>
     <div class="mt-2 row">
