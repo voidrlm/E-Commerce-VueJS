@@ -1,20 +1,10 @@
 <template>
   <v-container fluid>
-    <v-carousel hide-delimiters>
+    <v-carousel>
       <v-carousel-item
-        :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-      >
-      </v-carousel-item>
-      <v-carousel-item
-        :src="'https://img.freepik.com/free-psd/sale-banner-template_24972-824.jpg?w=1800&t=st=1673596377~exp=1673596977~hmac=af31f567d846ef3fbc17f77167ddf6cce2039f0062fbceab2ca3f1d359ece34c'"
-      >
-      </v-carousel-item>
-      <v-carousel-item
-        :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-      >
-      </v-carousel-item>
-      <v-carousel-item
-        :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
+        v-for="(hero, index) in heroItems"
+        :key="index"
+        :src="hero.img"
       >
       </v-carousel-item>
     </v-carousel>
@@ -261,6 +251,20 @@
 export default {
   name: "dashboard-component",
   data: () => ({
+    heroItems: [
+      {
+        img: "http://cdn.shopify.com/s/files/1/0639/1221/4745/collections/seiko-psx-banner-2022-kc_1.jpg?v=1664792439",
+      },
+      {
+        img: "https://www.casio.com/content/casio/locales/intl/en/products/_jcr_content/root/responsivegrid/image_1970305012_cop.casiocoreimg.jpeg/1669891514209/aem-banner-top-g-1920-816.jpeg",
+      },
+      {
+        img: "https://www.casio.com/content/casio/locales/in/en/products/watches/_jcr_content/root/responsivegrid/carousel/teaser_347947699.casiocoreimg.jpeg/1661234121239/aem-banner-top-ed1-1920-816.jpeg",
+      },
+      {
+        img: "https://helveticawatches.com/wp-content/uploads/2021/04/rado-banner.jpg",
+      },
+    ],
     items: [
       { title: "Click Me" },
       { title: "Click Me" },
