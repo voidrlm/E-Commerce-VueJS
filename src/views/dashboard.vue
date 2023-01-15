@@ -13,14 +13,16 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <v-card>
           <v-img
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
+            :src="'https://cdn.shopify.com/s/files/1/0277/9601/3133/articles/box-2567767_960_720_9dba573a-4a9f-4f5e-b6dc-fae1aa3a6845.jpg?v=1591515644'"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
           >
-            <h1 class="text-center font-size">Top Picks</h1>
+            <h1 class="text-center font-size">View Collection</h1>
             <div class="text-center">
-              <v-btn to="/search" class="white--text" outlined>SHOP NOW</v-btn>
+              <v-btn to="/search/all" class="white--text" outlined
+                >Explore</v-btn
+              >
             </div>
           </v-img>
         </v-card>
@@ -33,7 +35,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
           >
-            <h1 class="text-center font-size">New Arrivals</h1>
+            <h1 class="text-center font-size">Shop For Women</h1>
             <div class="text-center">
               <v-btn to="/search" class="white--text" outlined>SHOP NOW</v-btn>
             </div>
@@ -70,10 +72,10 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Seiko</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption" to="/search" text
-                >SHOP NOW
+              <v-btn class="white--text caption" to="/search/b-Seiko" text
+                >Shop
                 <v-icon class="white--text caption"
                   >mdi-arrow-right</v-icon
                 ></v-btn
@@ -90,10 +92,10 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Casio</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption" to="/search" text
-                >SHOP NOW
+              <v-btn class="white--text caption" to="/search/b-Casio" text
+                >Shop
                 <v-icon class="white--text caption"
                   >mdi-arrow-right</v-icon
                 ></v-btn
