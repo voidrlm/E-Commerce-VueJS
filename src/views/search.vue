@@ -243,6 +243,22 @@ export default {
         description:
           "Dial Color: Green, Case Shape: Round, Dial Glass Material: Hardlex /n Band Color: Silver, Band Material: Stainless Steel Watch Movement Type: Automatic, Watch Display Type: Analog Case Material: Stainless Steel, Case Diameter: 42.5 millimeters Water Resistance Depth: 100 meters",
       },
+      {
+        id: 5000,
+        name: "Gshock GMWB5000D-1",
+        brand: "Casio",
+        type: "Analogue",
+        price: "550.00",
+        movement: "Digital",
+        imgs: [
+          "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq1.png.transform/main-visual-pc/image.png",
+          "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq5.jpg.transform/main-visual-pc/image.jpg",
+          "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq4.jpg.transform/main-visual-pc/image.jpg",
+          "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq8.jpg.transform/main-visual-pc/image.jpg",
+        ],
+        description:
+          "The DW-5000C is the original G-Shock model from 1983. The GMW-B5000 Series has inherited its characteristic square design and been given the full metal treatment along with upgraded features including smartphone linking. The watch has been given a full-metal case by using a shock-resistant fine resin cushioning material inserted between the case and the sturdy stainless steel metal bezel. High-density mounting technology also allows the watch to maintain its size. The back of the watch features a solid Screw Lock Back and has been DLC treated for resistance to wear. The metal band has been dimple processed, inheriting the Resin Band design of the original. Visibility too has been enhanced via use of a film solar cell and STN-LCD (liquid crystal). ",
+      },
     ],
     selectedBrand: [],
   }),
