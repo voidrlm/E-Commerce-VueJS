@@ -121,6 +121,12 @@
                 hide-details
                 dense
               ></v-checkbox>
+              <v-checkbox
+                color="accent"
+                label="Solar"
+                hide-details
+                dense
+              ></v-checkbox>
             </v-container>
           </v-card>
         </div>
@@ -155,19 +161,24 @@
               v-for="(pro, index) in products"
               :key="index"
             >
-              <v-card class="mx-auto" @click="showProductView(pro)">
-                <v-carousel height="350" hide-delimiters>
+              <v-card
+                class="mx-auto"
+                @click="showProductView(pro)"
+                height="350"
+                width="350"
+              >
+                <v-carousel hide-delimiters height="350" width="350">
                   <v-carousel-item v-for="(image, i) in pro.imgs" :key="i">
                     <v-img height="350" width="350" :src="image"> </v-img>
                   </v-carousel-item>
                 </v-carousel>
-                <v-card-title class="subtitle-1 justify-center" to="/product">
-                  {{ pro.brand + " " + pro.name }}
-                </v-card-title>
-                <v-card-subtitle class="subtitle-2"
-                  >${{ pro.price }}</v-card-subtitle
-                >
               </v-card>
+              <v-card-title class="subtitle-1 justify-center" to="/product">
+                {{ pro.brand + " " + pro.name }}
+              </v-card-title>
+              <v-card-subtitle class="subtitle-2"
+                >${{ pro.price }}</v-card-subtitle
+              >
             </div>
           </div>
           <div class="text-center mt-12">
@@ -258,6 +269,22 @@ export default {
         ],
         description:
           "The DW-5000C is the original G-Shock model from 1983. The GMW-B5000 Series has inherited its characteristic square design and been given the full metal treatment along with upgraded features including smartphone linking. The watch has been given a full-metal case by using a shock-resistant fine resin cushioning material inserted between the case and the sturdy stainless steel metal bezel. High-density mounting technology also allows the watch to maintain its size. The back of the watch features a solid Screw Lock Back and has been DLC treated for resistance to wear. The metal band has been dimple processed, inheriting the Resin Band design of the original. Visibility too has been enhanced via use of a film solar cell and STN-LCD (liquid crystal). ",
+      },
+      {
+        id: 930,
+        name: "NISMO Limited Edition",
+        brand: "Casio",
+        type: "Chronograph",
+        price: "300.00",
+        movement: "Solar",
+        imgs: [
+          "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A.png.transform/main-visual-pc/image.png",
+          "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A_top.jpg.transform/main-visual-pc/image.jpg",
+          "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A_N.png.transform/main-visual-pc/image.png",
+          "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A_side.jpg.transform/main-visual-pc/image.jpg",
+        ],
+        description:
+          "Celebrate a motorsports-chronograph partnership born in 2021 with the EDIFICE NISMO Limited Edition. ",
       },
     ],
     selectedBrand: [],

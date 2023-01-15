@@ -47,14 +47,7 @@
             ut etiam. Lectus arcu bibendum at varius vel pharetra. Morbi
             tristique senectus et netus et malesuada.
           </p>
-          <p class="title">SIZE</p>
-          <v-radio-group v-model="row" row>
-            <v-radio label="XS" value="XS"></v-radio>
-            <v-radio label="S" value="s"></v-radio>
-            <v-radio label="M" value="m"></v-radio>
-            <v-radio label="L" value="l"></v-radio>
-            <v-radio label="XL" value="xl"></v-radio>
-          </v-radio-group>
+
           <p class="title">ITEMS</p>
 
           <v-text-field
