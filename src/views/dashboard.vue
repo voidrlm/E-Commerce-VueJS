@@ -5,6 +5,7 @@
         v-for="(hero, index) in heroItems"
         :key="index"
         :src="hero.img"
+        @click="showProductView(hero)"
       >
       </v-carousel-item>
     </v-carousel>
@@ -103,109 +104,6 @@
       </div>
     </div>
 
-    <v-card-title class="subheading justify-center"
-      >Deals of the Day</v-card-title
-    >
-    <v-divider></v-divider>
-    <div class="row mb-3">
-      <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
-        <v-hover v-slot:default="{ hover }" open-delay="200">
-          <v-card :elevation="hover ? 16 : 2">
-            <v-img
-              class="white--text align-end"
-              height="200px"
-              :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-            >
-              <v-card-title>Bags & Purses </v-card-title>
-            </v-img>
-
-            <v-card-text class="text--primary text-center">
-              <div>Upto 60% + Extra 10%</div>
-              <div>Baggit, Zara, Fossil</div>
-            </v-card-text>
-
-            <div class="text-center">
-              <v-btn to="/search" class="ma-2" outlined color="info">
-                Explore
-              </v-btn>
-            </div>
-          </v-card>
-        </v-hover>
-      </div>
-      <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
-        <v-hover v-slot:default="{ hover }" open-delay="200">
-          <v-card :elevation="hover ? 16 : 2">
-            <v-img
-              class="white--text align-end"
-              height="200px"
-              :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-            >
-              <v-card-title>T-Shirt </v-card-title>
-            </v-img>
-
-            <v-card-text class="text--primary text-center">
-              <div>Upto 50%</div>
-              <div>Zara, Selected, Celio</div>
-            </v-card-text>
-
-            <div class="text-center">
-              <v-btn to="/search" class="ma-2" outlined color="info">
-                Explore
-              </v-btn>
-            </div>
-          </v-card>
-        </v-hover>
-      </div>
-      <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
-        <v-hover v-slot:default="{ hover }" open-delay="200">
-          <v-card :elevation="hover ? 16 : 2">
-            <v-img
-              class="white--text align-end"
-              height="200px"
-              :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-            >
-              <v-card-title>Jeans </v-card-title>
-            </v-img>
-
-            <v-card-text class="text--primary text-center">
-              <div>Upto 60% + Extra 10%</div>
-              <div>Jack & Jones, Levis</div>
-            </v-card-text>
-
-            <div class="text-center">
-              <v-btn to="/search" class="ma-2" outlined color="info">
-                Explore
-              </v-btn>
-            </div>
-          </v-card>
-        </v-hover>
-      </div>
-      <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
-        <v-hover v-slot:default="{ hover }" open-delay="200">
-          <v-card :elevation="hover ? 16 : 2">
-            <v-img
-              class="white--text align-end"
-              height="200px"
-              :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-            >
-              <v-card-title>Shoes </v-card-title>
-            </v-img>
-
-            <v-card-text class="text--primary text-center">
-              <div>Upto 60% + Extra 10%</div>
-              <div>Nike, Adidas, Puma</div>
-            </v-card-text>
-
-            <div class="text-center">
-              <v-btn to="/search" class="ma-2" outlined color="info">
-                Explore
-              </v-btn>
-            </div>
-          </v-card>
-        </v-hover>
-      </div>
-    </div>
-
     <v-card class="accent">
       <v-container>
         <v-row no-gutters>
@@ -254,32 +152,21 @@ export default {
     heroItems: [
       {
         img: "http://cdn.shopify.com/s/files/1/0639/1221/4745/collections/seiko-psx-banner-2022-kc_1.jpg?v=1664792439",
+        tad: "p-61",
       },
       {
         img: "https://www.casio.com/content/casio/locales/intl/en/products/_jcr_content/root/responsivegrid/image_1970305012_cop.casiocoreimg.jpeg/1669891514209/aem-banner-top-g-1920-816.jpeg",
+        tad: "p-930",
       },
       {
         img: "https://www.casio.com/content/casio/locales/in/en/products/watches/_jcr_content/root/responsivegrid/carousel/teaser_347947699.casiocoreimg.jpeg/1661234121239/aem-banner-top-ed1-1920-816.jpeg",
+        tad: "p-5000",
       },
       {
         img: "https://helveticawatches.com/wp-content/uploads/2021/04/rado-banner.jpg",
+        tad: "b-Rado",
       },
     ],
-    items: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" },
-    ],
-    activeBtn: 1,
-    colors: [
-      "indigo",
-      "warning",
-      "pink darken-2",
-      "red lighten-1",
-      "deep-purple accent-4",
-    ],
-    slides: ["First", "Second", "Third", "Fourth", "Fifth"],
   }),
   computed: {
     getGreetingData() {
@@ -291,6 +178,16 @@ export default {
         : curHr > 18
         ? "Good Evening"
         : "Good Afternoon";
+    },
+  },
+  methods: {
+    showProductView(product) {
+      console.log(product);
+      if (this.$router.currentRoute.path !== "/product") {
+        this.$router.push({
+          path: "/product/" + product.id,
+        });
+      }
     },
   },
 };
