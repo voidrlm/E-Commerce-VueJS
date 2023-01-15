@@ -17,7 +17,11 @@
           </p>
           <v-card-actions class="pa-0">
             <p class="headline font-weight-light pt-3">
-              ${{ selectedProduct.price }}
+              {{
+                selectedProduct.price !== ""
+                  ? "$" + selectedProduct.price
+                  : "Unavailable"
+              }}
             </p>
             <v-spacer></v-spacer>
           </v-card-actions>
@@ -33,7 +37,12 @@
             :value="1"
             dense
           ></v-text-field>
-          <v-btn class="primary white--text" outlined tile dense
+          <v-btn
+            class="primary white--text"
+            outlined
+            tile
+            dense
+            :disabled="selectedProduct.price === ''"
             ><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn
           >
           <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn>

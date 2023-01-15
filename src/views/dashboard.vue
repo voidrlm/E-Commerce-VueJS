@@ -52,9 +52,9 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Rolex</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption" to="/search" text
+              <v-btn class="white--text caption" to="/search/b-Rolex" text
                 >SHOP NOW
                 <v-icon class="white--text caption"
                   >mdi-arrow-right</v-icon
@@ -184,8 +184,6 @@ export default {
   },
   methods: {
     showProductView(product) {
-      console.log(product.tag);
-
       if (product.tag[0] === "p") {
         this.$router.push({
           path: "/product/" + product.tag,

@@ -197,9 +197,9 @@
               <v-card-title class="subtitle-1 justify-center" to="/product">
                 {{ pro.brand + " " + pro.name }}
               </v-card-title>
-              <v-card-subtitle class="subtitle-2"
-                >${{ pro.price }}</v-card-subtitle
-              >
+              <v-card-subtitle class="subtitle-2">{{
+                pro.price !== "" ? "$" + pro.price : "Unavailable"
+              }}</v-card-subtitle>
             </div>
           </div>
           <div class="text-center mt-12">
@@ -254,7 +254,6 @@ export default {
         (x) => x.name === this.$route.params.id.substring(2)
       );
       this.selectedBrand = [brand];
-      console.log(this.selectedBrand);
     } else {
       console.log("error");
     }
