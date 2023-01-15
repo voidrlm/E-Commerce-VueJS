@@ -152,19 +152,19 @@ export default {
     heroItems: [
       {
         img: "http://cdn.shopify.com/s/files/1/0639/1221/4745/collections/seiko-psx-banner-2022-kc_1.jpg?v=1664792439",
-        tad: "p-61",
+        tag: "p-61",
       },
       {
         img: "https://www.casio.com/content/casio/locales/intl/en/products/_jcr_content/root/responsivegrid/image_1970305012_cop.casiocoreimg.jpeg/1669891514209/aem-banner-top-g-1920-816.jpeg",
-        tad: "p-930",
+        tag: "p-5000",
       },
       {
         img: "https://www.casio.com/content/casio/locales/in/en/products/watches/_jcr_content/root/responsivegrid/carousel/teaser_347947699.casiocoreimg.jpeg/1661234121239/aem-banner-top-ed1-1920-816.jpeg",
-        tad: "p-5000",
+        tag: "p-930",
       },
       {
         img: "https://helveticawatches.com/wp-content/uploads/2021/04/rado-banner.jpg",
-        tad: "b-Rado",
+        tag: "b-Rado",
       },
     ],
   }),
@@ -182,10 +182,15 @@ export default {
   },
   methods: {
     showProductView(product) {
-      console.log(product);
-      if (this.$router.currentRoute.path !== "/product") {
+      console.log(product.tag);
+
+      if (product.tag[0] === "p") {
         this.$router.push({
-          path: "/product/" + product.id,
+          path: "/product/" + product.tag,
+        });
+      } else if (product.tag[0] === "b") {
+        this.$router.push({
+          path: "/search/" + product.tag,
         });
       }
     },

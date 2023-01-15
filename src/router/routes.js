@@ -24,7 +24,7 @@ const routes = [
     component: () => import("../views/cart.vue"),
   },
   {
-    path: "/search",
+    path: "/search/:id",
     name: "Search",
     meta: { authorized: true },
     component: () => import("../views/search.vue"),

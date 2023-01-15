@@ -4,31 +4,20 @@
       <div class="col-md-5 col-sm-5 col-xs-12">
         <v-carousel>
           <v-carousel-item
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-          >
-          </v-carousel-item>
-          <v-carousel-item
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-          >
-          </v-carousel-item>
-          <v-carousel-item
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-          >
-          </v-carousel-item>
-          <v-carousel-item
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-          >
-          </v-carousel-item>
+            v-for="(image, index) in selectedProduct.imgs"
+            :key="index"
+            :src="image"
+          ></v-carousel-item>
         </v-carousel>
       </div>
       <div class="col-md-7 col-sm-7 col-xs-12">
-        <v-breadcrumbs class="pb-0" :items="breadcrums"></v-breadcrumbs>
         <div class="pl-6">
-          <p class="display-1 mb-0">Modern Black T-Shirt</p>
+          <p class="display-1 mb-0">
+            {{ selectedProduct.brand + " " + selectedProduct.name }}
+          </p>
           <v-card-actions class="pa-0">
             <p class="headline font-weight-light pt-3">
-              $65.00
-              <del style="" class="subtitle-1 font-weight-thin">$80.00</del>
+              ${{ selectedProduct.price }}
             </p>
             <v-spacer></v-spacer>
             <v-rating
@@ -41,11 +30,7 @@
             <span class="body-2 font-weight-thin"> 25 REVIEWS</span>
           </v-card-actions>
           <p class="subtitle-1 font-weight-thin">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl
-            tincidunt eget nullam non. Tincidunt arcu non sodales neque sodales
-            ut etiam. Lectus arcu bibendum at varius vel pharetra. Morbi
-            tristique senectus et netus et malesuada.
+            {{ selectedProduct.description }}
           </p>
 
           <p class="title">ITEMS</p>
@@ -66,45 +51,12 @@
     <div class="row">
       <div class="col-sm-12 col-xs-12 col-md-12">
         <v-tabs>
-          <v-tab>Description</v-tab>
-          <v-tab>Materials</v-tab>
           <v-tab>REVIEWS</v-tab>
+
           <v-tab-item>
-            <p class="pt-10 subtitle-1 font-weight-thin">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ultricies mi eget mauris pharetra et. Vel pretium lectus quam id
-              leo in vitae turpis massa. Orci dapibus ultrices in iaculis nunc.
-              At auctor urna nunc id cursus metus. Integer feugiat scelerisque
-              varius morbi enim nunc. Aliquam sem et tortor consequat id porta
-              nibh venenatis cras. Pellentesque pulvinar pellentesque habitant
-              morbi tristique senectus et netus. Malesuada nunc vel risus
-              commodo viverra maecenas. Neque volutpat ac tincidunt vitae semper
-              quis.
-            </p>
-          </v-tab-item>
-          <v-tab-item>
-            <p class="pt-10 subtitle-1 font-weight-thin">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ultricies mi eget mauris pharetra et. Vel pretium lectus quam id
-              leo in vitae turpis massa. Orci dapibus ultrices in iaculis nunc.
-              At auctor urna nunc id cursus metus. Integer feugiat scelerisque
-              varius morbi enim nunc. Aliquam sem et tortor consequat id porta
-              nibh venenatis cras. Pellentesque pulvinar pellentesque habitant
-              morbi tristique senectus et netus. Malesuada nunc vel risus
-              commodo viverra maecenas. Neque volutpat ac tincidunt vitae semper
-              quis.
-            </p>
-          </v-tab-item>
-          <v-tab-item>
-            <v-list three-line="true" avatar="true">
+            <v-list avatar="true">
               <v-list-item-group v-model="item" color="primary">
-                <v-list-item
-                  v-for="(item, i) in items"
-                  :key="i"
-                  inactive="true"
-                >
+                <v-list-item v-for="(item, i) in items" :key="i">
                   <v-list-item-avatar>
                     <v-img
                       :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
@@ -273,9 +225,12 @@
   </v-container>
 </template>
 <script>
+import { products } from "@/resources/productsDB";
 export default {
   name: "products-component",
   data: () => ({
+    products,
+    selectedProduct: {},
     rating: 4.5,
     breadcrums: [
       {
@@ -329,5 +284,18 @@ export default {
       },
     ],
   }),
+  mounted() {
+    let routeTag = this.$route.params.id;
+    if (routeTag[0] == "p") {
+      routeTag = this.$route.params.id.substring(2);
+    }
+    if (routeTag[1] !== "-" && routeTag[1] !== "n") {
+      this.selectedProduct = this.products.find(
+        (product) => product.id == routeTag
+      );
+    } else {
+      console.log("error");
+    }
+  },
 };
 </script>
