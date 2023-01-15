@@ -9,7 +9,7 @@
             <template>
               <v-treeview
                 :items="items"
-                :selected-color="'#ffff'"
+                :selected-color="'accent'"
                 color="accent"
                 selectable
                 return-object
@@ -193,7 +193,7 @@
 export default {
   name: "products-component",
   data: () => ({
-    range: [0, 1000],
+    range: [0, 500000],
     select: "Popularity",
     options: [
       "Default",
@@ -205,7 +205,7 @@ export default {
     page: 1,
     productsDB: [],
     min: 0,
-    max: 1000,
+    max: 500000,
     items: [
       {
         id: 1,
@@ -227,6 +227,7 @@ export default {
         type: "Chronograph",
         price: "150.00",
         movement: "Quartz",
+        gender: "M",
         imgs: [
           "https://m.media-amazon.com/images/I/713m0cORTBL._UL1100_.jpg",
           "https://m.media-amazon.com/images/I/516UJ9B3AiL._UL1100_.jpg",
@@ -245,6 +246,7 @@ export default {
         type: "Analogue",
         price: "250.00",
         movement: "Automatic & Mechanical",
+        gender: "M",
         imgs: [
           "https://m.media-amazon.com/images/I/81j8TtonHhL._UL1500_.jpg",
           "https://m.media-amazon.com/images/I/71WmjI3VosL._UL1500_.jpg",
@@ -261,6 +263,7 @@ export default {
         type: "Analogue",
         price: "550.00",
         movement: "Digital",
+        gender: "U",
         imgs: [
           "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq1.png.transform/main-visual-pc/image.png",
           "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq5.jpg.transform/main-visual-pc/image.jpg",
@@ -277,6 +280,7 @@ export default {
         type: "Chronograph",
         price: "300.00",
         movement: "Solar",
+        gender: "M",
         imgs: [
           "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A.png.transform/main-visual-pc/image.png",
           "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A_top.jpg.transform/main-visual-pc/image.jpg",
@@ -285,6 +289,23 @@ export default {
         ],
         description:
           "Celebrate a motorsports-chronograph partnership born in 2021 with the EDIFICE NISMO Limited Edition. ",
+      },
+      {
+        id: 27086162,
+        name: "True Square Automatic Open Heart",
+        brand: "Rado",
+        type: "Analog",
+        price: "2500.00",
+        movement: "Automatic & Mechanical",
+        gender: "U",
+        imgs: [
+          "https://www.rado.com/media/catalog/product/r/g/rgb_cat_truesquare_734_6086_3_016_3.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
+          "https://www.rado.com/media/catalog/product/t/r/truesquare_0173460863016_r27086162_a_2.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
+          "https://www.rado.com/media/catalog/product/t/r/truesquare_0173460863016_r27086162_b_2.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
+          "https://www.rado.com/media/catalog/product/t/r/truesquare_r27086162_wrist_a.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
+        ],
+        description:
+          "At Rado, we made our name producing square high-tech ceramic watches. The True Square is a new take on an iconic Rado shape. Our first watch made using a square injected monobloc high-tech ceramic case, the True Square is light, scratch-resistant and comfortable to wear. Distinctive and design-led the Rado True Square Automatic Open Heart is the shape of things to come. ",
       },
     ],
     selectedBrand: [],
