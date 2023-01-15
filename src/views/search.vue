@@ -155,13 +155,9 @@
               v-for="(pro, index) in products"
               :key="index"
             >
-              <v-card class="mx-auto">
+              <v-card class="mx-auto" @click="showProductView(pro)">
                 <v-carousel height="350" hide-delimiters>
-                  <v-carousel-item
-                    v-for="(image, i) in pro.imgs"
-                    :key="i"
-                    to="/product"
-                  >
+                  <v-carousel-item v-for="(image, i) in pro.imgs" :key="i">
                     <v-img height="350" width="350" :src="image"> </v-img>
                   </v-carousel-item>
                 </v-carousel>
@@ -214,7 +210,7 @@ export default {
     ],
     products: [
       {
-        id: 1,
+        id: 369,
         name: "Edifice (ED369)",
         brand: "Casio",
         type: "Chronograph",
@@ -232,7 +228,7 @@ export default {
           "Brand New Casio Edifice Tachymeter Chronograph Multi-Color Dial Men's Watch - EF-539D-1AVDF (ED369)",
       },
       {
-        id: 2,
+        id: 61,
         name: "SRPD61K1",
         brand: "Seiko",
         type: "Analogue",
@@ -271,6 +267,14 @@ export default {
       this.products = this.products.filter(
         (watch) => watch.price >= this.range[0] && watch.price <= this.range[1]
       );
+    },
+    showProductView(product) {
+      console.log(product);
+      if (this.$router.currentRoute.path !== "/product") {
+        this.$router.push({
+          path: "/product/" + product.id,
+        });
+      }
     },
   },
 };

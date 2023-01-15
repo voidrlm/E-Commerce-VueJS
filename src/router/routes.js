@@ -12,8 +12,8 @@ const routes = [
     component: () => import("../views/dashboard.vue"),
   },
   {
-    path: "/product",
-    name: "Product",
+    path: "/product/:id",
+    name: "View Product",
     meta: { authorized: true },
     component: () => import("../views/product.vue"),
   },
