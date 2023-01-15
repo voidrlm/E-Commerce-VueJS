@@ -30,7 +30,7 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <v-card>
           <v-img
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
+            :src="'https://magazine.lucerneluxe.com/wp-content/uploads/2020/03/Womens-watches-banner.jpg'"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
@@ -47,7 +47,7 @@
       <div class="col-md-4 col-sm-4 col-xs-12">
         <v-card outlined>
           <v-img
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
+            :src="'https://www.thewatchcompany.com/media/tm_blog/p/o/7/6485/post_7_6485.jpg'"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
@@ -67,7 +67,7 @@
       <div class="col-md-4 col-sm-4 col-xs-12">
         <v-card outlined>
           <v-img
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
+            :src="'https://images.squarespace-cdn.com/content/v1/58610afd29687f7c771f55ec/1597895450777-TXUZT72AAHDEQLB7KE74/Seiko+Five.png'"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
@@ -87,7 +87,7 @@
       <div class="col-md-4 col-sm-4 col-xs-12">
         <v-card outlined>
           <v-img
-            :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
+            :src="'https://1000logos.net/wp-content/uploads/2018/02/Casio-logo.jpg'"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
