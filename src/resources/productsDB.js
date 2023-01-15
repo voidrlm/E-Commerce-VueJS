@@ -86,4 +86,67 @@ export const products = [
     description:
       "At Rado, we made our name producing square high-tech ceramic watches. The True Square is a new take on an iconic Rado shape. Our first watch made using a square injected monobloc high-tech ceramic case, the True Square is light, scratch-resistant and comfortable to wear. Distinctive and design-led the Rado True Square Automatic Open Heart is the shape of things to come. ",
   },
+  {
+    id: 1374101104100,
+    name: "PRX T1374101104100",
+    brand: "Tissot",
+    type: "Analog",
+    price: "250.00",
+    movement: "Quartz",
+    gender: "M",
+    imgs: [
+      "https://cdn.helioswatchstore.com/production/media/catalog/product/cache/dd1c3400e344f54d12df823ec560a116/t/1/t1374101104100_1.jpg",
+      "https://cdn.helioswatchstore.com/production/media/catalog/product/cache/dd1c3400e344f54d12df823ec560a116/t/1/t1374101104100_10.jpg",
+      "https://cdn.helioswatchstore.com/production/media/catalog/product/cache/dd1c3400e344f54d12df823ec560a116/t/1/t1374101104100_2.jpg",
+      "https://cdn.helioswatchstore.com/production/media/catalog/product/cache/dd1c3400e344f54d12df823ec560a116/t/1/t1374101104100_8.jpg",
+    ],
+    description:
+      " In 1978 the Tissot PRX was born, in 2021 we celebrate its comeback. The new Tissot PRX, the watch for those with passion for design and an eye for ingenuity. Discover the brand new Tissot PRX now, its evocative and slim design makes it an uncompromising essential for all the design enthusiasts.",
+  },
+  {
+    id: 36,
+    name: "DATEJUST 36",
+    brand: "Rolex",
+    type: "Analog",
+    price: "",
+    movement: "Automatic & Mechanical",
+    gender: "U",
+    imgs: [
+      "https://content.rolex.com//dam/2022/upright-cc/m126233-0039.png?impolicy=v6-corners&sc=0.384",
+      "https://content.rolex.com//dam/2022/laying-ba-with-shadow/m126233-0039.png?impolicy=v6-corners&sc=0.262&vo=-154",
+      "https://content.rolex.com//dam/2022/presentation-box-hr/m126233-0039.jpg?impolicy=v6-corners-bg&sc=0.17",
+      "https://content.rolex.com//dam/2022/presentation-tray/m126233-0039.jpg?impolicy=v6-corners&sc=0.32&vo=109",
+    ],
+    description: " Oyster, 36 mm, Oystersteel and yellow gold",
+  },
+  {
+    id: 466,
+    name: "SRZ466P1",
+    brand: "Seiko",
+    type: "Analog",
+    price: "",
+    movement: "Quartz",
+    gender: "W",
+    imgs: [
+      "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-fashion-style-srz466p1-large.jpg",
+      "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-fashion-style-srz466p1-multiple-2.jpg",
+      "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-fashion-style-srz466p1-multiple-1.jpg",
+    ],
+    description:
+      " Seiko has empowered the upliftment of new ideas and independence alike. Known for creating timepieces that are primarily for men and also unisex, it was new for the brand to launch a line of watches just for women. Called the Seiko Ladies collection, the timepieces under this collection are specifically made for women and cater to the feminine mind with sometimes quirky and sometimes elegant designs.",
+  },
 ];
+// {
+//     id: ,
+//     name: "",
+//     brand: "",
+//     type: "",
+//     price: "",
+//     movement: "",
+//     gender: "",
+//     imgs: [
+//         "","","","",
+//     ],
+//     description:
+//       " ",
+//   },
