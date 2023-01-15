@@ -20,14 +20,6 @@
               ${{ selectedProduct.price }}
             </p>
             <v-spacer></v-spacer>
-            <v-rating
-              v-model="rating"
-              class=""
-              background-color="warning lighten-3"
-              color="warning"
-              dense
-            ></v-rating>
-            <span class="body-2 font-weight-thin"> 25 REVIEWS</span>
           </v-card-actions>
           <p class="subtitle-1 font-weight-thin">
             {{ selectedProduct.description }}
@@ -65,7 +57,7 @@
                   <v-list-item-content>
                     <v-list-item-title v-html="item.title"></v-list-item-title
                     ><v-rating
-                      v-model="rating"
+                      :value="5"
                       class=""
                       background-color="warning lighten-3"
                       color="warning"
@@ -231,24 +223,6 @@ export default {
   data: () => ({
     products,
     selectedProduct: {},
-    rating: 4.5,
-    breadcrums: [
-      {
-        text: "Home",
-        disabled: false,
-        href: "dashboard",
-      },
-      {
-        text: "Clothing",
-        disabled: false,
-        href: "search",
-      },
-      {
-        text: "T-Shirts",
-        disabled: true,
-        href: "product",
-      },
-    ],
     item: 5,
     items: [
       {
