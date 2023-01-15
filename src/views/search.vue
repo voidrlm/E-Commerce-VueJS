@@ -9,13 +9,12 @@
             <template>
               <v-treeview
                 :items="items"
-                :open="[1]"
-                :active="[5]"
                 :selected-color="'#ffff'"
-                activatable
-                open-on-click
                 color="accent"
-                dense
+                selectable
+                return-object
+                v-model="selectedBrand"
+                @input="filterBrands"
               ></v-treeview>
             </template>
             <v-divider></v-divider>
@@ -128,7 +127,7 @@
         <div class="col-md-9 col-sm-9 col-xs-12">
           <v-row dense>
             <v-col cols="12" sm="8" class="pl-6 pt-6">
-              <small>{{ "Showing 1-12 of " + products.length }}</small>
+              <small>{{ "Showing 1-12 of " + productsDB.length }}</small>
             </v-col>
             <v-col cols="12" sm="4">
               <v-select
@@ -152,13 +151,8 @@
               v-for="(pro, index) in products"
               :key="index"
             >
-              <v-card class="mx-auto" color="grey lighten-4">
-                <v-carousel
-                  cycle
-                  height="350"
-                  show-arrows="hover"
-                  hide-delimiters
-                >
+              <v-card class="mx-auto">
+                <v-carousel height="350" hide-delimiters>
                   <v-carousel-item
                     v-for="(image, i) in pro.imgs"
                     :key="i"
@@ -184,16 +178,6 @@
     </v-container>
   </div>
 </template>
-<style>
-.v-card--reveal {
-  align-items: center;
-  bottom: 0;
-  justify-content: center;
-  opacity: 0.8;
-  position: absolute;
-  width: 100%;
-}
-</style>
 <script>
 export default {
   name: "products-component",
@@ -208,35 +192,19 @@ export default {
       "Price: High to Low",
     ],
     page: 1,
-    breadcrums: [
-      {
-        text: "Home",
-        disabled: false,
-        to: "dashboard",
-      },
-      {
-        text: "Clothing",
-        disabled: false,
-        to: "breadcrumbs_clothing",
-      },
-      {
-        text: "T-Shirts",
-        disabled: true,
-        to: "breadcrumbs_shirts",
-      },
-    ],
+    productsDB: [],
     min: 0,
     max: 10000,
     items: [
       {
-        id: 2,
+        id: 1,
         name: "Brands",
         children: [
-          { id: 2, name: "Casio" },
-          { id: 3, name: "Seiko" },
-          { id: 4, name: "Rado" },
-          { id: 5, name: "Rolex" },
-          { id: 6, name: "Tissot" },
+          { id: "1a", name: "Casio" },
+          { id: "1b", name: "Seiko" },
+          { id: "1c", name: "Rado" },
+          { id: "1d", name: "Rolex" },
+          { id: "1e", name: "Tissot" },
         ],
       },
     ],
@@ -265,6 +233,7 @@ export default {
         brand: "Seiko",
         type: "Analogue",
         price: "250.00",
+        movement: "Automatic & Mechanical",
         imgs: [
           "https://m.media-amazon.com/images/I/81j8TtonHhL._UL1500_.jpg",
           "https://m.media-amazon.com/images/I/71WmjI3VosL._UL1500_.jpg",
@@ -275,6 +244,22 @@ export default {
           "Dial Color: Green, Case Shape: Round, Dial Glass Material: Hardlex /n Band Color: Silver, Band Material: Stainless Steel Watch Movement Type: Automatic, Watch Display Type: Analog Case Material: Stainless Steel, Case Diameter: 42.5 millimeters Water Resistance Depth: 100 meters",
       },
     ],
+    selectedBrand: [],
   }),
+  mounted() {
+    this.productsDB = this.products;
+  },
+  methods: {
+    filterBrands() {
+      const brands = this.selectedBrand.map(function (user) {
+        return user.name;
+      });
+      if (brands.length !== 0) {
+        this.products = this.productsDB.filter((watch) =>
+          brands.includes(watch.brand)
+        );
+      } else this.products = this.productsDB;
+    },
+  },
 };
 </script>
