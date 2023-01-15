@@ -87,47 +87,38 @@
               ></v-checkbox>
             </v-container>
             <v-divider></v-divider>
-            <v-card-title class="pb-0">Size</v-card-title>
+            <v-card-title class="pb-0">Face</v-card-title>
             <v-container class="pt-0" fluid>
               <v-checkbox
                 color="accent"
-                label="XS"
+                label="Analog"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
                 color="accent"
-                label="S"
+                label="Digital"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
                 color="accent"
-                label="M"
+                label="Chronograph"
+                hide-details
+                dense
+              ></v-checkbox>
+            </v-container>
+            <v-card-title class="pb-0">Movement</v-card-title>
+            <v-container class="pt-0" fluid>
+              <v-checkbox
+                color="accent"
+                label="Automatic & Mechanical"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
                 color="accent"
-                label="L"
-                hide-details
-                dense
-              ></v-checkbox>
-              <v-checkbox
-                color="accent"
-                label="XL"
-                hide-details
-                dense
-              ></v-checkbox>
-              <v-checkbox
-                color="accent"
-                label="XXL"
-                hide-details
-                dense
-              ></v-checkbox>
-              <v-checkbox
-                color="accent"
-                label="XXXL"
+                label="Quartz"
                 hide-details
                 dense
               ></v-checkbox>
@@ -137,7 +128,7 @@
         <div class="col-md-9 col-sm-9 col-xs-12">
           <v-row dense>
             <v-col cols="12" sm="8" class="pl-6 pt-6">
-              <small>Showing 1-12 of 200 products</small>
+              <small>{{ "Showing 1-12 of " + products.length }}</small>
             </v-col>
             <v-col cols="12" sm="4">
               <v-select
@@ -157,32 +148,31 @@
 
           <div class="row text-center">
             <div
-              class="col-md-3 col-sm-6 col-xs-12"
+              class="col-md-4 col-sm-6 col-xs-12"
               v-for="(pro, index) in products"
               :key="index"
             >
-              <v-card
-                class="mx-auto"
-                color="grey lighten-4"
-                max-width="600"
-                to="/product"
-              >
-                <v-img
-                  class="white--text align-end"
-                  :aspect-ratio="16 / 9"
-                  height="200px"
-                  :src="pro.src"
+              <v-card class="mx-auto" color="grey lighten-4">
+                <v-carousel
+                  cycle
+                  height="350"
+                  show-arrows="hover"
+                  hide-delimiters
                 >
-                  <v-card-title>{{ pro.type }} </v-card-title>
-                </v-img>
-                <v-card-text>
-                  <div>
-                    <a to="/product" style="text-decoration: none">{{
-                      pro.name
-                    }}</a>
-                  </div>
-                  <div>${{ pro.price }}</div>
-                </v-card-text>
+                  <v-carousel-item
+                    v-for="(image, i) in pro.imgs"
+                    :key="i"
+                    to="/product"
+                  >
+                    <v-img height="350" width="350" :src="image"> </v-img>
+                  </v-carousel-item>
+                </v-carousel>
+                <v-card-title class="subtitle-1 justify-center" to="/product">
+                  {{ pro.brand + " " + pro.name }}
+                </v-card-title>
+                <v-card-subtitle class="subtitle-2"
+                  >${{ pro.price }}</v-card-subtitle
+                >
               </v-card>
             </div>
           </div>
@@ -240,108 +230,49 @@ export default {
     items: [
       {
         id: 2,
-        name: "Shoes",
+        name: "Brands",
         children: [
-          { id: 2, name: "Casuals" },
-          { id: 3, name: "Formals" },
-          { id: 4, name: "Sneakers" },
-        ],
-      },
-      {
-        id: 1,
-        name: "Clothing",
-        children: [
-          { id: 5, name: "Shirts" },
-          { id: 6, name: "Tops" },
-          { id: 7, name: "Tunics" },
-          { id: 8, name: "Bodysuit" },
+          { id: 2, name: "Casio" },
+          { id: 3, name: "Seiko" },
+          { id: 4, name: "Rado" },
+          { id: 5, name: "Rolex" },
+          { id: 6, name: "Tissot" },
         ],
       },
     ],
     products: [
       {
         id: 1,
-        name: "BLACK TEE",
-        type: "Jackets",
-        price: "18.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
+        name: "Edifice (ED369)",
+        brand: "Casio",
+        type: "Chronograph",
+        price: "150.00",
+        movement: "Quartz",
+        imgs: [
+          "https://m.media-amazon.com/images/I/713m0cORTBL._UL1100_.jpg",
+          "https://m.media-amazon.com/images/I/516UJ9B3AiL._UL1100_.jpg",
+          "https://m.media-amazon.com/images/I/41ojGD14DkL._UL1100_.jpg",
+          "https://m.media-amazon.com/images/I/61pU41bIjsL._UL1100_.jpg",
+          "https://m.media-amazon.com/images/I/51zRqfJICzL._UL1100_.jpg",
+          "https://m.media-amazon.com/images/I/51dLG6sE23L._UL1100_.jpg",
+        ],
+        description:
+          "Brand New Casio Edifice Tachymeter Chronograph Multi-Color Dial Men's Watch - EF-539D-1AVDF (ED369)",
       },
       {
         id: 2,
-        name: "WHITE TEE",
-        type: "Polo",
-        price: "40.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 3,
-        name: "Zara limited...",
-        type: "Denim",
-        price: "25.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 4,
-        name: "SKULL TEE",
-        type: "Jackets",
-        price: "30.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 5,
-        name: "MANGO WINTER",
-        type: "Sweaters",
-        price: "50.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 6,
-        name: "SHIRT",
-        type: "Denim",
-        price: "34.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 7,
-        name: "TRUCKER JACKET",
-        type: "Jackets",
-        price: "38.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 8,
-        name: "COATS",
-        type: "Jackets",
-        price: "25.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 9,
-        name: "MANGO WINTER",
-        type: "Sweaters",
-        price: "50.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 10,
-        name: "SHIRT",
-        type: "Denim",
-        price: "34.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 11,
-        name: "TRUCKER JACKET",
-        type: "Jackets",
-        price: "38.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-      },
-      {
-        id: 12,
-        name: "COATS",
-        type: "Jackets",
-        price: "25.00",
-        src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
+        name: "SRPD61K1",
+        brand: "Seiko",
+        type: "Analogue",
+        price: "250.00",
+        imgs: [
+          "https://m.media-amazon.com/images/I/81j8TtonHhL._UL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71WmjI3VosL._UL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71u-C9C5IqL._UL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71zydc1xRpL._UL1500_.jpg",
+        ],
+        description:
+          "Dial Color: Green, Case Shape: Round, Dial Glass Material: Hardlex /n Band Color: Silver, Band Material: Stainless Steel Watch Movement Type: Automatic, Watch Display Type: Analog Case Material: Stainless Steel, Case Diameter: 42.5 millimeters Water Resistance Depth: 100 meters",
       },
     ],
   }),
