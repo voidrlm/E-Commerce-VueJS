@@ -14,7 +14,7 @@
                 selectable
                 return-object
                 v-model="selectedBrand"
-                @input="filterBrands"
+                @input="filter"
               ></v-treeview>
             </template>
             <v-divider></v-divider>
@@ -127,7 +127,11 @@
         <div class="col-md-9 col-sm-9 col-xs-12">
           <v-row dense>
             <v-col cols="12" sm="8" class="pl-6 pt-6">
-              <small>{{ "Showing 1-12 of " + productsDB.length }}</small>
+              <small>{{
+                selectedBrand.length === 0
+                  ? "Showing " + products.length + " of " + productsDB.length
+                  : ""
+              }}</small>
             </v-col>
             <v-col cols="12" sm="4">
               <v-select
@@ -182,7 +186,7 @@
 export default {
   name: "products-component",
   data: () => ({
-    range: [0, 10000],
+    range: [0, 1000],
     select: "Popularity",
     options: [
       "Default",
@@ -194,7 +198,7 @@ export default {
     page: 1,
     productsDB: [],
     min: 0,
-    max: 10000,
+    max: 1000,
     items: [
       {
         id: 1,
@@ -249,8 +253,13 @@ export default {
   mounted() {
     this.productsDB = this.products;
   },
+  watch: {
+    range() {
+      this.filter();
+    },
+  },
   methods: {
-    filterBrands() {
+    filter() {
       const brands = this.selectedBrand.map(function (user) {
         return user.name;
       });
@@ -259,6 +268,9 @@ export default {
           brands.includes(watch.brand)
         );
       } else this.products = this.productsDB;
+      this.products = this.products.filter(
+        (watch) => watch.price >= this.range[0] && watch.price <= this.range[1]
+      );
     },
   },
 };
