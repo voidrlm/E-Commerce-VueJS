@@ -7,6 +7,7 @@ export const products = [
     price: "150.00",
     movement: "Quartz",
     gender: "M",
+    popularity: 36,
     rating: 3.5,
     imgs: [
       "https://m.media-amazon.com/images/I/713m0cORTBL._UL1100_.jpg",
@@ -27,6 +28,7 @@ export const products = [
     price: "250.00",
     movement: "Automatic & Mechanical",
     gender: "M",
+    popularity: 69,
     rating: 4.2,
     imgs: [
       "https://m.media-amazon.com/images/I/81j8TtonHhL._UL1500_.jpg",
@@ -44,6 +46,7 @@ export const products = [
     type: "Digital",
     price: "550.00",
     movement: "Digital",
+    popularity: 81,
     gender: "U",
     rating: 4.3,
     imgs: [
@@ -63,6 +66,7 @@ export const products = [
     price: "300.00",
     movement: "Solar",
     gender: "M",
+    popularity: 61,
     rating: 3.5,
     imgs: [
       "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A.png.transform/main-visual-pc/image.png",
@@ -80,6 +84,7 @@ export const products = [
     type: "Analog",
     price: "2500.00",
     movement: "Automatic & Mechanical",
+    popularity: 78,
     rating: 4.0,
     gender: "U",
     imgs: [
@@ -100,6 +105,7 @@ export const products = [
     movement: "Quartz",
     rating: 3.9,
     gender: "M",
+    popularity: 76,
     imgs: [
       "https://cdn.helioswatchstore.com/production/media/catalog/product/cache/dd1c3400e344f54d12df823ec560a116/t/1/t1374101104100_1.jpg",
       "https://cdn.helioswatchstore.com/production/media/catalog/product/cache/dd1c3400e344f54d12df823ec560a116/t/1/t1374101104100_10.jpg",
@@ -118,6 +124,7 @@ export const products = [
     movement: "Automatic & Mechanical",
     gender: "U",
     rating: 4.8,
+    popularity: 94,
     imgs: [
       "https://content.rolex.com//dam/2022/upright-cc/m126233-0039.png?impolicy=v6-corners&sc=0.384",
       "https://content.rolex.com//dam/2022/laying-ba-with-shadow/m126233-0039.png?impolicy=v6-corners&sc=0.262&vo=-154",
@@ -135,6 +142,7 @@ export const products = [
     movement: "Quartz",
     gender: "W",
     rating: 3.7,
+    popularity: 34,
     imgs: [
       "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-fashion-style-srz466p1-large.jpg",
       "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-fashion-style-srz466p1-multiple-2.jpg",
