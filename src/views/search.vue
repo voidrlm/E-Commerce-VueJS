@@ -201,49 +201,112 @@
             </v-col>
             <v-col cols="12" sm="4">
               <v-select
+                v-model="sortChosen"
                 color="accent"
                 class="pa-0"
-                v-model="select"
-                :items="options"
+                :items="typesOfSort"
                 style="margin-bottom: -20px"
                 outlined
                 dense
                 item-color="accent"
+                @change="sortProducts()"
               ></v-select>
             </v-col>
           </v-row>
 
           <v-divider></v-divider>
+          <v-data-iterator
+            :items="products"
+            :items-per-page.sync="itemsPerPage"
+            :page.sync="page"
+            :search="search"
+            :sort-by="sortProductsBy.toLowerCase()"
+            :sort-desc="sortDesc"
+            hide-default-footer
+          >
+            <template v-slot:default="props">
+              <v-row>
+                <div
+                  class="col-md-4 col-sm-6 col-xs-12"
+                  v-for="(pro, index) in props.items"
+                  :key="index"
+                >
+                  <v-card
+                    class="mx-auto"
+                    @click="showProductView(pro)"
+                    height="350"
+                    width="350"
+                  >
+                    <v-carousel hide-delimiters height="350" width="350">
+                      <v-carousel-item v-for="(image, i) in pro.imgs" :key="i">
+                        <v-img height="350" width="350" :src="image"> </v-img>
+                      </v-carousel-item>
+                    </v-carousel>
+                  </v-card>
+                  <v-card-title class="subtitle-1 justify-center" to="/product">
+                    {{ pro.brand + " " + pro.name }}
+                  </v-card-title>
+                  <v-card-subtitle class="subtitle-2">{{
+                    pro.price !== "" ? "$" + pro.price : "Unavailable"
+                  }}</v-card-subtitle>
+                </div>
+              </v-row>
+            </template>
 
-          <div class="row text-center">
-            <div
-              class="col-md-4 col-sm-6 col-xs-12"
-              v-for="(pro, index) in products"
-              :key="index"
-            >
-              <v-card
-                class="mx-auto"
-                @click="showProductView(pro)"
-                height="350"
-                width="350"
-              >
-                <v-carousel hide-delimiters height="350" width="350">
-                  <v-carousel-item v-for="(image, i) in pro.imgs" :key="i">
-                    <v-img height="350" width="350" :src="image"> </v-img>
-                  </v-carousel-item>
-                </v-carousel>
-              </v-card>
-              <v-card-title class="subtitle-1 justify-center" to="/product">
-                {{ pro.brand + " " + pro.name }}
-              </v-card-title>
-              <v-card-subtitle class="subtitle-2">{{
-                pro.price !== "" ? "$" + pro.price : "Unavailable"
-              }}</v-card-subtitle>
-            </div>
-          </div>
-          <div class="text-center mt-12">
-            <v-pagination v-model="page" :length="6"></v-pagination>
-          </div>
+            <template v-slot:footer>
+              <v-row class="mt-2" align="center" justify="center">
+                <span class="grey--text">Items per page</span>
+                <v-menu offset-y>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      dark
+                      text
+                      color="primary"
+                      class="ml-2"
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      {{ itemsPerPage }}
+                      <v-icon>mdi-chevron-down</v-icon>
+                    </v-btn>
+                  </template>
+                  <v-list>
+                    <v-list-item
+                      v-for="(number, index) in itemsPerPageArray"
+                      :key="index"
+                      @click="updateItemsPerPage(number)"
+                    >
+                      <v-list-item-title>{{ number }}</v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+
+                <v-spacer></v-spacer>
+
+                <span class="mr-4 grey--text">
+                  Page {{ page }} of {{ numberOfPages }}
+                </span>
+                <v-btn
+                  fab
+                  dark
+                  color="blue darken-3"
+                  class="mr-1"
+                  @click="formerPage"
+                >
+                  <v-icon>mdi-chevron-left</v-icon>
+                </v-btn>
+                <v-btn
+                  fab
+                  dark
+                  color="blue darken-3"
+                  class="ml-1"
+                  @click="nextPage"
+                >
+                  <v-icon>mdi-chevron-right</v-icon>
+                </v-btn>
+              </v-row>
+            </template>
+          </v-data-iterator>
         </div>
       </div>
     </v-container>
@@ -255,15 +318,14 @@ export default {
   name: "products-component",
   data: () => ({
     range: [0, 500000],
-    select: "Popularity",
-    options: [
-      "Default",
+    sortChosen: "Relevance",
+    sortProductsBy: "Relevance",
+    typesOfSort: [
       "Popularity",
       "Relevance",
       "Price: Low to High",
       "Price: High to Low",
     ],
-    page: 1,
     productsDB: [],
     min: 0,
     max: 500000,
@@ -286,27 +348,44 @@ export default {
     selectedGender: [],
     products,
     selectedBrand: [],
+    itemsPerPageArray: [10, 25, 50],
+    search: "",
+    sortDesc: true,
+    page: 1,
+    itemsPerPage: 10,
   }),
   mounted() {
     this.productsDB = this.products;
     let routeTag = this.$route.params.id;
-    console.log(routeTag);
     if (routeTag[0] === "b") {
       let brand = this.items[0].children.find(
         (x) => x.name === this.$route.params.id.substring(2)
       );
       this.selectedBrand = [brand];
     } else {
-      console.log("error");
+      console.log("loaded");
     }
   },
-
+  computed: {
+    numberOfPages() {
+      return Math.ceil(this.products.length / this.itemsPerPage);
+    },
+  },
   watch: {
     range() {
       this.filter();
     },
   },
   methods: {
+    nextPage() {
+      if (this.page + 1 <= this.numberOfPages) this.page += 1;
+    },
+    formerPage() {
+      if (this.page - 1 >= 1) this.page -= 1;
+    },
+    updateItemsPerPage(number) {
+      this.itemsPerPage = number;
+    },
     filter() {
       const brands = this.selectedBrand.map(function (user) {
         return user.name;
@@ -339,6 +418,21 @@ export default {
         this.products = this.products.filter((watch) =>
           this.selectedGender.includes(watch.gender)
         );
+      }
+    },
+    sortProducts() {
+      if (this.sortChosen === "Price: Low to High") {
+        this.sortProductsBy = "price";
+        this.sortDesc = false;
+      } else if (this.sortChosen === "Price: High to Low") {
+        this.sortProductsBy = "price";
+        this.sortDesc = true;
+      } else if (this.sortChosen === "Popularity") {
+        this.sortProductsBy = "Popularity";
+        this.sortDesc = true;
+      } else {
+        this.sortProductsBy = "Relevance";
+        this.sortDesc = true;
       }
     },
     showProductView(product) {
