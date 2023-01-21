@@ -131,18 +131,27 @@
             <v-card-title class="pb-0">Gender</v-card-title>
             <v-container class="pt-0" fluid>
               <v-checkbox
+                v-model="selectedGender"
+                :value="'M'"
+                @change="filter"
                 color="accent"
                 label="Men"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedGender"
+                :value="'W'"
+                @change="filter"
                 color="accent"
                 label="Women"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedGender"
+                :value="'U'"
+                @change="filter"
                 color="accent"
                 label="Unisex"
                 hide-details
@@ -242,6 +251,10 @@ export default {
         ],
       },
     ],
+    selectedRatings: [],
+    selectedFace: [],
+    selectedMovements: [],
+    selectedGender: [],
     products,
     selectedBrand: [],
   }),
@@ -270,13 +283,18 @@ export default {
         return user.name;
       });
       if (brands.length !== 0) {
-        this.products = this.productsDB.filter((watch) =>
-          brands.includes(watch.brand)
+        this.products = JSON.parse(JSON.stringify(this.productsDB)).filter(
+          (watch) => brands.includes(watch.brand)
         );
       } else this.products = this.productsDB;
       this.products = this.products.filter(
         (watch) => watch.price >= this.range[0] && watch.price <= this.range[1]
       );
+      if (this.selectedGender.length !== 0) {
+        this.products = this.products.filter((watch) =>
+          this.selectedGender.includes(watch.gender)
+        );
+      }
     },
     showProductView(product) {
       console.log(product);
