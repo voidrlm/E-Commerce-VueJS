@@ -110,18 +110,27 @@
             <v-card-title class="pb-0">Movement</v-card-title>
             <v-container class="pt-0" fluid>
               <v-checkbox
+                v-model="selectedMovements"
+                :value="'Automatic & Mechanical'"
+                @change="filter"
                 color="accent"
                 label="Automatic & Mechanical"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedMovements"
+                :value="'Quartz'"
+                @change="filter"
                 color="accent"
                 label="Quartz"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedMovements"
+                :value="'Solar'"
+                @change="filter"
                 color="accent"
                 label="Solar"
                 hide-details
@@ -216,7 +225,6 @@
           </div>
         </div>
       </div>
-      {{ selectedBrand }}
     </v-container>
   </div>
 </template>
@@ -290,6 +298,11 @@ export default {
       this.products = this.products.filter(
         (watch) => watch.price >= this.range[0] && watch.price <= this.range[1]
       );
+      if (this.selectedMovements.length !== 0) {
+        this.products = this.products.filter((watch) =>
+          this.selectedMovements.includes(watch.movement)
+        );
+      }
       if (this.selectedGender.length !== 0) {
         this.products = this.products.filter((watch) =>
           this.selectedGender.includes(watch.gender)
