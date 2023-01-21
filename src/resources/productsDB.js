@@ -7,6 +7,7 @@ export const products = [
     price: "150.00",
     movement: "Quartz",
     gender: "M",
+    rating: 3.5,
     imgs: [
       "https://m.media-amazon.com/images/I/713m0cORTBL._UL1100_.jpg",
       "https://m.media-amazon.com/images/I/516UJ9B3AiL._UL1100_.jpg",
@@ -26,6 +27,7 @@ export const products = [
     price: "250.00",
     movement: "Automatic & Mechanical",
     gender: "M",
+    rating: 4.2,
     imgs: [
       "https://m.media-amazon.com/images/I/81j8TtonHhL._UL1500_.jpg",
       "https://m.media-amazon.com/images/I/71WmjI3VosL._UL1500_.jpg",
@@ -39,10 +41,11 @@ export const products = [
     id: 5000,
     name: "Gshock GMWB5000D-1",
     brand: "Casio",
-    type: "Analogue",
+    type: "Digital",
     price: "550.00",
     movement: "Digital",
     gender: "U",
+    rating: 4.3,
     imgs: [
       "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq1.png.transform/main-visual-pc/image.png",
       "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq5.jpg.transform/main-visual-pc/image.jpg",
@@ -60,6 +63,7 @@ export const products = [
     price: "300.00",
     movement: "Solar",
     gender: "M",
+    rating: 3.5,
     imgs: [
       "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A.png.transform/main-visual-pc/image.png",
       "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EQ/EQS/EQS-930NIS-1A/assets/EQS-930NIS-1A_top.jpg.transform/main-visual-pc/image.jpg",
@@ -76,6 +80,7 @@ export const products = [
     type: "Analog",
     price: "2500.00",
     movement: "Automatic & Mechanical",
+    rating: 4.0,
     gender: "U",
     imgs: [
       "https://www.rado.com/media/catalog/product/r/g/rgb_cat_truesquare_734_6086_3_016_3.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
@@ -93,6 +98,7 @@ export const products = [
     type: "Analog",
     price: "250.00",
     movement: "Quartz",
+    rating: 3.9,
     gender: "M",
     imgs: [
       "https://cdn.helioswatchstore.com/production/media/catalog/product/cache/dd1c3400e344f54d12df823ec560a116/t/1/t1374101104100_1.jpg",
@@ -111,6 +117,7 @@ export const products = [
     price: "",
     movement: "Automatic & Mechanical",
     gender: "U",
+    rating: 4.8,
     imgs: [
       "https://content.rolex.com//dam/2022/upright-cc/m126233-0039.png?impolicy=v6-corners&sc=0.384",
       "https://content.rolex.com//dam/2022/laying-ba-with-shadow/m126233-0039.png?impolicy=v6-corners&sc=0.262&vo=-154",
@@ -127,6 +134,7 @@ export const products = [
     price: "",
     movement: "Quartz",
     gender: "W",
+    rating: 3.7,
     imgs: [
       "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-fashion-style-srz466p1-large.jpg",
       "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/s/e/seiko-fashion-style-srz466p1-multiple-2.jpg",
