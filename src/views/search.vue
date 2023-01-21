@@ -57,27 +57,39 @@
             <v-card-title class="pb-0">Customer Rating</v-card-title>
             <v-container class="pt-0" fluid>
               <v-checkbox
+                v-model="selectedRatings"
+                :value="4"
                 color="accent"
                 append-icon="mdi-star"
                 label="4 & above"
                 hide-details
                 dense
+                @change="filter"
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedRatings"
+                :value="3"
                 color="accent"
                 append-icon="mdi-star"
                 label="3 & above"
                 hide-details
                 dense
+                @change="filter"
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedRatings"
+                :value="2"
                 color="accent"
                 append-icon="mdi-star"
                 label="2 & above"
                 hide-details
                 dense
+                @change="filter"
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedRatings"
+                :value="1"
+                @change="filter"
                 color="accent"
                 append-icon="mdi-star"
                 label="1 & above"
@@ -89,18 +101,27 @@
             <v-card-title class="pb-0">Face</v-card-title>
             <v-container class="pt-0" fluid>
               <v-checkbox
+                v-model="selectedFace"
+                :value="'Analog'"
+                @change="filter"
                 color="accent"
                 label="Analog"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedFace"
+                :value="'Digital'"
+                @change="filter"
                 color="accent"
                 label="Digital"
                 hide-details
                 dense
               ></v-checkbox>
               <v-checkbox
+                v-model="selectedFace"
+                :value="'Chronograph'"
+                @change="filter"
                 color="accent"
                 label="Chronograph"
                 hide-details
@@ -298,6 +319,17 @@ export default {
       this.products = this.products.filter(
         (watch) => watch.price >= this.range[0] && watch.price <= this.range[1]
       );
+      let minimumRatingSelected = Math.min.apply(null, this.selectedRatings);
+      if (minimumRatingSelected !== Infinity) {
+        this.products = this.products.filter(
+          (watch) => watch.rating >= minimumRatingSelected
+        );
+      }
+      if (this.selectedFace.length !== 0) {
+        this.products = this.products.filter((watch) =>
+          this.selectedFace.includes(watch.type)
+        );
+      }
       if (this.selectedMovements.length !== 0) {
         this.products = this.products.filter((watch) =>
           this.selectedMovements.includes(watch.movement)
