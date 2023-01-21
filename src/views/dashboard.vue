@@ -37,7 +37,9 @@
           >
             <h1 class="text-center font-size">Shop For Women</h1>
             <div class="text-center">
-              <v-btn to="/search" class="white--text" outlined>SHOP NOW</v-btn>
+              <v-btn to="/search/W" class="white--text" outlined
+                >SHOP NOW</v-btn
+              >
             </div>
           </v-img>
         </v-card>

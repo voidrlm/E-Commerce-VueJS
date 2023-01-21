@@ -359,9 +359,16 @@ export default {
     let routeTag = this.$route.params.id;
     if (routeTag[0] === "b") {
       let brand = this.items[0].children.find(
-        (x) => x.name === this.$route.params.id.substring(2)
+        (x) => x.name === routeTag.substring(2)
       );
       this.selectedBrand = [brand];
+    } else if (
+      routeTag[0] === "M" ||
+      routeTag[0] === "W" ||
+      routeTag[0] === "U"
+    ) {
+      this.selectedGender = [routeTag[0]];
+      this.filter();
     } else {
       console.log("loaded");
     }
