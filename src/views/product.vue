@@ -6,7 +6,8 @@
           <v-carousel-item
             v-for="(image, index) in selectedProduct.imgs"
             :key="index"
-            :src="image"
+          >
+            <v-img :aspect-ratio="1 / 1" :width="500" :src="image"> </v-img
           ></v-carousel-item>
         </v-carousel>
       </div>

@@ -28,7 +28,9 @@
     >
 
     <v-spacer />
-    <v-text-field
+    <v-autocomplete
+      v-model="search"
+      :items="products"
       placeholder="Search store"
       filled
       rounded
@@ -36,19 +38,38 @@
       :class="$vuetify.breakpoint.xsOnly ? '' : 'ml-5'"
       class="accent--text mt-1"
       prepend-inner-icon="mdi-magnify"
-    ></v-text-field
-    ><v-spacer />
+      color="white"
+      hide-no-data
+      hide-selected
+      item-text="name"
+      item-value="id"
+      return-object
+      @input="searchProduct()"
+      ><template v-slot:item="{ item }">
+        <v-list-item-avatar
+          color="indigo"
+          class="text-h5 font-weight-light white--text"
+        >
+          <v-img :src="item.imgs[0]"></v-img>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title v-text="item.name"></v-list-item-title>
+          <v-list-item-subtitle v-text="item.brand"></v-list-item-subtitle>
+        </v-list-item-content> </template
+    ></v-autocomplete>
+    <v-spacer />
     <appBarMenu />
   </v-app-bar>
 </template>
 
 <script>
+import { products } from "@/resources/productsDB";
 import appBarMenu from "./appBarMenu.vue";
 export default {
   components: {
     appBarMenu,
   },
-  data: () => ({}),
+  data: () => ({ products, search: {} }),
   beforeMount() {
     if (localStorage.getItem("darkTheme") !== null) {
       this.$vuetify.theme.dark = JSON.parse(localStorage.getItem("darkTheme"));
@@ -66,6 +87,17 @@ export default {
     clearInterval(this.timer);
   },
   methods: {
+    searchProduct() {
+      if (
+        this.$router.currentRoute.path !==
+        "/product/" + "p-" + this.search.id
+      ) {
+        this.$router.push({
+          path: "/product/" + "p-" + this.search.id,
+        });
+      }
+      location.reload();
+    },
     routeToDashboard() {
       if (this.$router.currentRoute.path !== "/dashboard") {
         this.$router.push({
