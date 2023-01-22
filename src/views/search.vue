@@ -243,12 +243,18 @@
                       </v-carousel-item>
                     </v-carousel>
                   </v-card>
-                  <v-card-title class="subtitle-1 justify-center" to="/product">
+                  <v-card-title
+                    class="subtitle-1 justify-center align-center"
+                    to="/product"
+                  >
                     {{ pro.brand + " " + pro.name }}
                   </v-card-title>
-                  <v-card-subtitle class="subtitle-2">{{
-                    pro.price !== "" ? "$" + pro.price : "Unavailable"
-                  }}</v-card-subtitle>
+                  <v-card-title
+                    class="subtitle-2 justify-center align-center mt-n5"
+                    >{{
+                      pro.price !== "" ? "$" + pro.price : "Unavailable"
+                    }}</v-card-title
+                  >
                 </div>
               </v-row>
             </template>
@@ -286,22 +292,10 @@
                 <span class="mr-4 grey--text">
                   Page {{ page }} of {{ numberOfPages }}
                 </span>
-                <v-btn
-                  fab
-                  dark
-                  color="blue darken-3"
-                  class="mr-1"
-                  @click="formerPage"
-                >
+                <v-btn fab dark color="accent" class="mr-1" @click="formerPage">
                   <v-icon>mdi-chevron-left</v-icon>
                 </v-btn>
-                <v-btn
-                  fab
-                  dark
-                  color="blue darken-3"
-                  class="ml-1"
-                  @click="nextPage"
-                >
+                <v-btn fab dark color="accent" class="ml-1" @click="nextPage">
                   <v-icon>mdi-chevron-right</v-icon>
                 </v-btn>
               </v-row>
@@ -317,7 +311,7 @@ import { products } from "@/resources/productsDB";
 export default {
   name: "products-component",
   data: () => ({
-    range: [0, 500000],
+    range: [0, 5000],
     sortChosen: "Relevance",
     sortProductsBy: "Relevance",
     typesOfSort: [
@@ -328,7 +322,7 @@ export default {
     ],
     productsDB: [],
     min: 0,
-    max: 500000,
+    max: 5000,
     items: [
       {
         id: 1,
