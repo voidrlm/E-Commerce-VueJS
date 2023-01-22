@@ -250,6 +250,21 @@
                     {{ pro.brand + " " + pro.name }}
                   </v-card-title>
                   <v-card-title
+                    class="subtitle-2 justify-center align-center mt-n8"
+                  >
+                    <v-rating
+                      v-model="pro.rating"
+                      background-color="grey"
+                      color="accent"
+                      dense
+                      half-increments
+                      hover
+                      size="20"
+                      readonly
+                    ></v-rating
+                  ></v-card-title>
+
+                  <v-card-title
                     class="subtitle-2 justify-center align-center mt-n5"
                     >{{
                       pro.price !== "" ? "$" + pro.price : "Unavailable"
