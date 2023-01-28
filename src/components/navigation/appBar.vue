@@ -7,6 +7,7 @@
     <v-btn
       v-if="$router.currentRoute.path !== '/dashboard'"
       class="mt-n5 ml-n6"
+      :class="$vuetify.breakpoint.xsOnly ? 'mr-5' : ''"
       icon
       @click="$router.go(-1)"
       ><v-icon>mdi-chevron-left-circle</v-icon></v-btn
@@ -57,8 +58,8 @@
           <v-list-item-subtitle v-text="item.brand"></v-list-item-subtitle>
         </v-list-item-content> </template
     ></v-autocomplete>
-    <v-spacer />
-    <appBarMenu />
+    <v-spacer /><v-btn icon class="mt-n5 mr-2"><v-icon>mdi-cart</v-icon></v-btn>
+    <appBarMenu :class="$vuetify.breakpoint.xsOnly ? 'mr-n4' : ''" />
   </v-app-bar>
 </template>
 

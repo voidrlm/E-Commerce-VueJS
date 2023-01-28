@@ -2,12 +2,7 @@
   <div class="mt-n5">
     <v-menu offset-y :nudge-width="200">
       <template v-slot:activator="{ on, attrs }">
-        <v-avatar
-          v-bind="attrs"
-          v-on="on"
-          size="35"
-          :class="$vuetify.breakpoint.xsOnly ? 'ml-5' : ''"
-        >
+        <v-avatar v-bind="attrs" v-on="on" size="35">
           <v-img
             :src="
               $store.getters.currentUser.avatar
