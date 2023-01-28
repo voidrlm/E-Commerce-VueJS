@@ -46,7 +46,6 @@
             :disabled="selectedProduct.price === ''"
             ><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn
           >
-          <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn>
         </div>
       </div>
     </div>
