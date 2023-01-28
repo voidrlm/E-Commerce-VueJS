@@ -281,5 +281,10 @@ export default {
       console.log("error");
     }
   },
+  methods: {
+    addToCart() {
+      console.log("Adding to cart");
+    },
+  },
 };
 </script>

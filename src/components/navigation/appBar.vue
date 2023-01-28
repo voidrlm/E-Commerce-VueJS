@@ -58,19 +58,27 @@
           <v-list-item-subtitle v-text="item.brand"></v-list-item-subtitle>
         </v-list-item-content> </template
     ></v-autocomplete>
-    <v-spacer /><v-btn icon class="mt-n5 mr-2"><v-icon>mdi-cart</v-icon></v-btn>
+    <v-spacer /><v-btn
+      @click.stop="showCart = !showCart"
+      icon
+      class="mt-n5 mr-2"
+      ><v-icon>mdi-cart</v-icon></v-btn
+    >
     <appBarMenu :class="$vuetify.breakpoint.xsOnly ? 'mr-n4' : ''" />
+    <cartBar :showShoppingCart="showCart" @hide="showCart = $event" />
   </v-app-bar>
 </template>
 
 <script>
+import cartBar from "../shoppingCart/cartBar.vue";
 import { products } from "@/resources/productsDB";
 import appBarMenu from "./appBarMenu.vue";
 export default {
   components: {
     appBarMenu,
+    cartBar,
   },
-  data: () => ({ products, search: {} }),
+  data: () => ({ products, search: {}, showCart: false }),
   beforeMount() {
     if (localStorage.getItem("darkTheme") !== null) {
       this.$vuetify.theme.dark = JSON.parse(localStorage.getItem("darkTheme"));
