@@ -42,6 +42,12 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
+    <template v-slot:append>
+      <v-divider></v-divider>
+      <v-card-title class="justify-center pa-2"
+        >Cart Total:{{ totalAmount.price }}</v-card-title
+      >
+    </template>
   </v-navigation-drawer>
 </template>
 
