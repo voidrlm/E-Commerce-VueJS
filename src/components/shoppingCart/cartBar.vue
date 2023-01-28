@@ -69,6 +69,18 @@ export default {
         this.$emit("hide", newValue);
       },
     },
+    totalAmount() {
+      var val = this.shoppingCartItems.reduce(function (
+        previousValue,
+        currentValue
+      ) {
+        return {
+          price:
+            parseFloat(previousValue.price) + parseFloat(currentValue.price),
+        };
+      });
+      return val;
+    },
   },
 };
 </script>
