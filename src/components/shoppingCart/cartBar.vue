@@ -42,8 +42,15 @@ export default {
   props: { showShoppingCart: Boolean },
   data() {
     return {
-      shoppingCartItems: [],
+      shoppingCartItems:
+        JSON.parse(localStorage.getItem("shoppingCartItems")) || [],
     };
+  },
+  watch: {
+    showShoppingCart() {
+      this.shoppingCartItems =
+        JSON.parse(localStorage.getItem("shoppingCartItems")) || [];
+    },
   },
   computed: {
     show: {
