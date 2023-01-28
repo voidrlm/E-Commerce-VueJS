@@ -39,10 +39,10 @@
             dense
           ></v-text-field>
           <v-btn
-            class="primary white--text"
-            outlined
-            tile
+            class="accent"
+            rounded
             dense
+            @click="addToCart()"
             :disabled="selectedProduct.price === ''"
             ><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn
           >
@@ -283,7 +283,34 @@ export default {
   },
   methods: {
     addToCart() {
-      console.log("Adding to cart");
+      let shoppingCartItems = [];
+      if (
+        localStorage.getItem("shoppingCartItems") !== null &&
+        JSON.parse(localStorage.getItem("shoppingCartItems")).length !== 0
+      ) {
+        shoppingCartItems = JSON.parse(
+          localStorage.getItem("shoppingCartItems")
+        );
+        let product = {
+          ...this.selectedProduct,
+          quantity: this.quantity,
+        };
+        shoppingCartItems.push(product);
+        localStorage.setItem(
+          "shoppingCartItems",
+          JSON.stringify(shoppingCartItems)
+        );
+      } else {
+        let product = {
+          ...this.selectedProduct,
+          quantity: this.quantity,
+        };
+        shoppingCartItems.push(product);
+        localStorage.setItem(
+          "shoppingCartItems",
+          JSON.stringify(shoppingCartItems)
+        );
+      }
     },
   },
 };
