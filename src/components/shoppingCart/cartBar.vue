@@ -25,12 +25,20 @@
         v-for="(addedProducts, index) in shoppingCartItems"
         :key="index"
       >
-        <v-list-item-icon>
-          <v-icon>{{ addedProducts.icon }}</v-icon>
-        </v-list-item-icon>
+        <v-list-item-avatar>
+          <v-img :src="addedProducts.imgs[0]"></v-img>
+        </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>{{ addedProducts.name }}</v-list-item-title>
+          <v-list-item-title
+            >{{ addedProducts.brand }}-{{
+              addedProducts.name
+            }}</v-list-item-title
+          >
+          <v-list-item-subtitle
+            >$ {{ addedProducts.price }} X
+            {{ addedProducts.quantity }}</v-list-item-subtitle
+          >
         </v-list-item-content>
       </v-list-item>
     </v-list>
