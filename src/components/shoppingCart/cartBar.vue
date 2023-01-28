@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app right v-model="show" hide-overlay :width="400">
+  <v-navigation-drawer app right v-model="show" width="400" temporary bottom>
     <template v-slot:prepend>
       <v-list-item>
         <v-list-item-content>
@@ -50,7 +50,7 @@
     <template v-slot:append>
       <v-divider></v-divider>
       <v-card-title class="justify-center pa-2"
-        >Cart Total:{{ totalAmount.price }}</v-card-title
+        >Cart Total: $ {{ totalAmount.price }}</v-card-title
       >
     </template>
   </v-navigation-drawer>
