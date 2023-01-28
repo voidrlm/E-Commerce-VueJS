@@ -35,7 +35,7 @@
           <v-text-field
             outlined
             style="width: 100px"
-            :value="1"
+            v-model="quantity"
             dense
           ></v-text-field>
           <v-btn
@@ -231,6 +231,7 @@ import { products } from "@/resources/productsDB";
 export default {
   name: "products-component",
   data: () => ({
+    quantity: 1,
     products,
     selectedProduct: {},
     item: 5,
