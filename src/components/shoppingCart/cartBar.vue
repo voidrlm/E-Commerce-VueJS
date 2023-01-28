@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app right v-model="show">
+  <v-navigation-drawer app right v-model="show" hide-overlay :width="400">
     <template v-slot:prepend>
       <v-list-item>
         <v-list-item-content>
