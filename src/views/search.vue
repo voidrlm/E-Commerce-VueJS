@@ -223,6 +223,7 @@
             :sort-by="sortProductsBy.toLowerCase()"
             :sort-desc="sortDesc"
             hide-default-footer
+            class="pa-5"
           >
             <template v-slot:default="props">
               <v-row>
