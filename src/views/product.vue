@@ -294,6 +294,7 @@ export default {
         let product = {
           ...this.selectedProduct,
           quantity: this.quantity,
+          timestamp: new Date().getTime(),
         };
         shoppingCartItems.push(product);
         localStorage.setItem(
@@ -304,6 +305,7 @@ export default {
         let product = {
           ...this.selectedProduct,
           quantity: this.quantity,
+          timestamp: new Date().getTime(),
         };
         shoppingCartItems.push(product);
         localStorage.setItem(

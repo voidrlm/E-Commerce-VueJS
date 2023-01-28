@@ -22,8 +22,8 @@
 
     <v-list v-else>
       <v-list-item
-        v-for="(addedProducts, index) in shoppingCartItems"
-        :key="index"
+        v-for="addedProducts in shoppingCartItems"
+        :key="addedProducts.timestamp"
       >
         <v-list-item-avatar>
           <v-img :src="addedProducts.imgs[0]"></v-img>
@@ -41,13 +41,13 @@
           >
         </v-list-item-content>
         <v-list-item-action>
-          <v-btn icon>
-            <v-icon color="grey lighten-1">mdi-cart-remove</v-icon>
+          <v-btn icon @click="removeFromCart(addedProducts)">
+            <v-icon color="red lighten-1">mdi-cart-remove</v-icon>
           </v-btn>
         </v-list-item-action>
       </v-list-item>
     </v-list>
-    <template v-slot:append>
+    <template v-slot:append v-if="totalAmount">
       <v-divider></v-divider>
       <v-card-title class="justify-center pa-2"
         >Cart Total: $ {{ totalAmount.price }}</v-card-title
@@ -81,16 +81,30 @@ export default {
       },
     },
     totalAmount() {
-      var val = this.shoppingCartItems.reduce(function (
-        previousValue,
-        currentValue
-      ) {
-        return {
-          price:
-            parseFloat(previousValue.price) + parseFloat(currentValue.price),
-        };
+      if (this.shoppingCartItems.length !== 0) {
+        var val = this.shoppingCartItems.reduce(function (
+          previousValue,
+          currentValue
+        ) {
+          return {
+            price:
+              parseFloat(previousValue.price) + parseFloat(currentValue.price),
+          };
+        });
+        return val;
+      } else return 0;
+    },
+  },
+  methods: {
+    removeFromCart(item) {
+      this.shoppingCartItems = this.shoppingCartItems.filter(function (obj) {
+        return item.timestamp !== obj.timestamp;
       });
-      return val;
+
+      localStorage.setItem(
+        "shoppingCartItems",
+        JSON.stringify(this.shoppingCartItems)
+      );
     },
   },
 };
