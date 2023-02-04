@@ -24,7 +24,7 @@ export const products = [
     id: 61,
     name: "SRPD61K1",
     brand: "Seiko",
-    type: "Analogue",
+    type: "Analog",
     price: "250.00",
     movement: "Automatic & Mechanical",
     gender: "M",
