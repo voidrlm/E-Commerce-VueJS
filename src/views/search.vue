@@ -255,8 +255,8 @@
                   >
                     <v-rating
                       v-model="pro.rating"
-                      background-color="grey"
-                      color="accent"
+                      background-color="warning darken-2"
+                      color="warning"
                       dense
                       half-increments
                       hover
