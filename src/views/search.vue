@@ -9,8 +9,7 @@
             <template>
               <v-treeview
                 :items="items"
-                :selected-color="'accent'"
-                color="accent"
+                :selected-color="$vuetify.theme.dark ? 'white' : 'black'"
                 selectable
                 return-object
                 v-model="selectedBrand"
