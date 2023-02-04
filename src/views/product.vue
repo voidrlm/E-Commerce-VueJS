@@ -108,151 +108,13 @@
             </v-list>
           </v-tab-item>
         </v-tabs>
-        <v-card-text class="pa-0 pt-4" tile outlined>
-          <p class="subtitle-1 font-weight-light pt-3 text-center">
-            YOU MIGHT ALSO LIKE
-          </p>
-          <v-divider></v-divider>
-          <div class="row text-center">
-            <div class="col-md-2 col-sm-4 col-xs-12 text-center">
-              <v-hover v-slot:default="{ hover }" open-delay="200">
-                <v-card :elevation="hover ? 16 : 2">
-                  <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-                  >
-                    <v-card-title>Bags & Purses </v-card-title>
-                  </v-img>
-
-                  <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Baggit, Zara, Fossil</div>
-                  </v-card-text>
-
-                  <div class="text-center">
-                    <v-btn class="ma-2" outlined color="info"> Explore </v-btn>
-                  </div>
-                </v-card>
-              </v-hover>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-12 text-center">
-              <v-hover v-slot:default="{ hover }" open-delay="200">
-                <v-card :elevation="hover ? 16 : 2">
-                  <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-                  >
-                    <v-card-title>T-Shirt </v-card-title>
-                  </v-img>
-
-                  <v-card-text class="text--primary text-center">
-                    <div>Upto 50%</div>
-                    <div>Zara, Selected, Celio</div>
-                  </v-card-text>
-
-                  <div class="text-center">
-                    <v-btn class="ma-2" outlined color="info"> Explore </v-btn>
-                  </div>
-                </v-card>
-              </v-hover>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-12 text-center">
-              <v-hover v-slot:default="{ hover }" open-delay="200">
-                <v-card :elevation="hover ? 16 : 2">
-                  <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-                  >
-                    <v-card-title>Jeans </v-card-title>
-                  </v-img>
-
-                  <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Jack & Jones, Levis</div>
-                  </v-card-text>
-
-                  <div class="text-center">
-                    <v-btn class="ma-2" outlined color="info"> Explore </v-btn>
-                  </div>
-                </v-card>
-              </v-hover>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-12 text-center">
-              <v-hover v-slot:default="{ hover }" open-delay="200">
-                <v-card :elevation="hover ? 16 : 2">
-                  <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-                  >
-                    <v-card-title>Shirts </v-card-title>
-                  </v-img>
-
-                  <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Nike, Adidas, Puma</div>
-                  </v-card-text>
-
-                  <div class="text-center">
-                    <v-btn class="ma-2" outlined color="info"> Explore </v-btn>
-                  </div>
-                </v-card>
-              </v-hover>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-12 text-center">
-              <v-hover v-slot:default="{ hover }" open-delay="200">
-                <v-card :elevation="hover ? 16 : 2">
-                  <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-                  >
-                    <v-card-title>Shoes </v-card-title>
-                  </v-img>
-
-                  <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Nike, Adidas, Puma</div>
-                  </v-card-text>
-
-                  <div class="text-center">
-                    <v-btn class="ma-2" outlined color="info"> Explore </v-btn>
-                  </div>
-                </v-card>
-              </v-hover>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-12 text-center">
-              <v-hover v-slot:default="{ hover }" open-delay="200">
-                <v-card :elevation="hover ? 16 : 2">
-                  <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-                  >
-                    <v-card-title>Jackets </v-card-title>
-                  </v-img>
-
-                  <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Nike, Adidas, Puma</div>
-                  </v-card-text>
-
-                  <div class="text-center">
-                    <v-btn class="ma-2" outlined color="info"> Explore </v-btn>
-                  </div>
-                </v-card>
-              </v-hover>
-            </div>
-          </div>
-        </v-card-text>
+        <similiarItemsVue :similiarProducts="similiarProducts" />
       </div>
     </div>
   </v-container>
 </template>
 <script>
+import similiarItemsVue from "@/components/navigation/similiarItems.vue";
 import { products } from "@/resources/productsDB";
 export default {
   name: "products-component",
@@ -295,6 +157,7 @@ export default {
       },
     ],
   }),
+  components: { similiarItemsVue },
   mounted() {
     let routeTag = this.$route.params.id;
     if (routeTag[0] == "p") {
@@ -307,6 +170,23 @@ export default {
     } else {
       console.log("error");
     }
+  },
+  computed: {
+    similiarProducts() {
+      let similiarProductsByBrand = this.products.filter(
+        (watch) =>
+          watch.brand === this.selectedProduct.brand &&
+          watch.id !== this.selectedProduct.id
+      );
+      let similiarProductsByType = this.products.filter(
+        (watch) =>
+          watch.type === this.selectedProduct.type &&
+          watch.id !== this.selectedProduct.id
+      );
+      return similiarProductsByBrand.length === 0
+        ? similiarProductsByType
+        : similiarProductsByBrand;
+    },
   },
   methods: {
     addToCart() {
