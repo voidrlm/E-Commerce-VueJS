@@ -2,7 +2,7 @@
   <v-container>
     <div class="row">
       <div class="col-md-5 col-sm-5 col-xs-12">
-        <v-carousel hide-delimiters
+        <v-carousel
           ><template v-slot:prev="{ on, attrs }">
             <v-btn
               fab
@@ -29,7 +29,7 @@
             v-for="(image, index) in selectedProduct.imgs"
             :key="index"
           >
-            <v-img :aspect-ratio="1 / 1" :width="500" :src="image"> </v-img
+            <v-img :aspect-ratio="1" :width="500" :src="image"> </v-img
           ></v-carousel-item>
         </v-carousel>
       </div>
@@ -84,14 +84,15 @@
           <v-tab-item>
             <v-list avatar="true">
               <v-list-item-group v-model="item" color="accent">
-                <v-list-item v-for="(item, i) in items" :key="i">
+                <v-list-item v-for="(item, i) in reviews" :key="i">
                   <v-list-item-avatar>
-                    <v-img
-                      :src="'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg'"
-                    ></v-img>
+                    <v-img :src="item.avatar"></v-img>
                   </v-list-item-avatar>
                   <v-list-item-content>
-                    <v-list-item-title v-html="item.title"></v-list-item-title
+                    <v-list-item-title
+                      class="mx-1"
+                      v-html="item.title"
+                    ></v-list-item-title
                     ><v-rating
                       :value="5"
                       class=""
@@ -100,6 +101,7 @@
                       dense
                     ></v-rating>
                     <v-list-item-subtitle
+                      class="mx-1"
                       v-html="item.subtitle"
                     ></v-list-item-subtitle>
                   </v-list-item-content>
@@ -123,37 +125,24 @@ export default {
     products,
     selectedProduct: {},
     item: 5,
-    items: [
+    reviews: [
       {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-        title: "Lorem ipsum dolor?",
-        subtitle:
-          "<span class='text--primary'>Ali Connors</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Tincidunt arcu non sodales neque sodales ut etiam. Lectus arcu bibendum at varius vel pharetra. Morbi tristique senectus et netus et malesuada.\n" +
-          "\n",
+        avatar:
+          "https://i.seadn.io/gcs/files/9008e1ff76a030fd412be9850badd3e9.png?auto=format&w=384",
+        title: "Maya",
+        subtitle: "Good",
       },
       {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-        title:
-          'Lorem ipsum dolor <span class="grey--text text--lighten-1">4</span>',
-        subtitle:
-          "<span class='text--primary'>to Alex, Scott, Jennifer</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        avatar:
+          "https://i.seadn.io/gae/qoR1cWuIZzjlrNVcSMAzhrwDvXNtMxaYuDbNqkc_J5WGGqMSrF0wzO7K2MnSCEBLG8G8pZyJPqV7eTGt4wGwret85sbXJBYoAkypdQ?auto=format&w=384",
+        title: "Adam",
+        subtitle: "Nice",
       },
       {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-        title: "Lorem ipsum dolor",
-        subtitle:
-          "<span class='text--primary'>Sandra Adams</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      },
-      {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-        title: "Lorem ipsum dolor",
-        subtitle: "",
-      },
-      {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
-        title: "Lorem ipsum dolor",
-        subtitle:
-          "<span class='text--primary'>Britta Holt</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        avatar:
+          "https://i.seadn.io/gcs/files/3b34b743096f0e5c201c3a7b38e1f795.png?auto=format&w=384",
+        title: "John",
+        subtitle: "Awesome",
       },
     ],
   }),

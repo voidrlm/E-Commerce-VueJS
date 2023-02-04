@@ -11,7 +11,7 @@
         :key="index"
       >
         <v-hover v-slot:default="{ hover }" open-delay="200">
-          <v-card :elevation="hover ? 16 : 2">
+          <v-card :elevation="hover ? 16 : 2" @click="showProductView(product)">
             <v-img
               class="white--text"
               :aspect-ratio="1 / 1"
@@ -43,8 +43,14 @@ export default {
   data() {
     return {};
   },
-
   computed: {},
-  methods: {},
+  methods: {
+    showProductView(product) {
+      this.$router.push({
+        path: "/product/p-" + product.id,
+      });
+      location.reload();
+    },
+  },
 };
 </script>
