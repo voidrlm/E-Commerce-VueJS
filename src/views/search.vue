@@ -23,14 +23,24 @@
               :max="max"
               :min="min"
               :height="10"
-              color="accent"
-              class="align-center"
+              :color="$vuetify.theme.dark ? 'white' : 'black'"
+              class="align-center mx-3"
               dense
             ></v-range-slider>
-            <v-row class="pa-2" dense>
+            <v-row class="pa-2 mx-1" dense>
               <v-col cols="12" sm="5">
                 <v-text-field
-                  color="accent"
+                  v-for="(card, index) in cards"
+                  :key="index"
+                  :color="$vuetify.theme.dark ? 'white' : 'black'"
+                  :value="range[0]"
+                  label="Min"
+                  outlined
+                  dense
+                  @change="$set(range, 0, $event)"
+                ></v-text-field>
+                <v-text-field
+                  :color="$vuetify.theme.dark ? 'white' : 'black'"
                   :value="range[0]"
                   label="Min"
                   outlined
@@ -39,11 +49,11 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="2">
-                <p class="pt-2 text-center">TO</p>
+                <p class="pt-2 text-center">To</p>
               </v-col>
               <v-col cols="12" sm="5">
                 <v-text-field
-                  color="accent"
+                  :color="$vuetify.theme.dark ? 'white' : 'black'"
                   :value="range[1]"
                   label="Max"
                   outlined
@@ -53,78 +63,18 @@
               </v-col>
             </v-row>
             <v-divider></v-divider>
-            <v-card-title class="pb-0">Customer Rating</v-card-title>
-            <v-container class="pt-0" fluid>
+            <v-card-title class="pb-0">Rating</v-card-title>
+            <v-container class="pt-0 mx-1" fluid>
               <v-checkbox
+                v-for="(rating, index) in 4"
+                :key="index"
                 v-model="selectedRatings"
-                :value="4"
-                color="accent"
-                append-icon="mdi-star"
-                label="4 & above"
+                :value="4 - index"
+                :color="$vuetify.theme.dark ? 'white' : 'black'"
+                :label="4 - index + ' & above'"
                 hide-details
                 dense
                 @change="filter"
-              ></v-checkbox>
-              <v-checkbox
-                v-model="selectedRatings"
-                :value="3"
-                color="accent"
-                append-icon="mdi-star"
-                label="3 & above"
-                hide-details
-                dense
-                @change="filter"
-              ></v-checkbox>
-              <v-checkbox
-                v-model="selectedRatings"
-                :value="2"
-                color="accent"
-                append-icon="mdi-star"
-                label="2 & above"
-                hide-details
-                dense
-                @change="filter"
-              ></v-checkbox>
-              <v-checkbox
-                v-model="selectedRatings"
-                :value="1"
-                @change="filter"
-                color="accent"
-                append-icon="mdi-star"
-                label="1 & above"
-                hide-details
-                dense
-              ></v-checkbox>
-            </v-container>
-            <v-divider></v-divider>
-            <v-card-title class="pb-0">Face</v-card-title>
-            <v-container class="pt-0" fluid>
-              <v-checkbox
-                v-model="selectedFace"
-                :value="'Analog'"
-                @change="filter"
-                color="accent"
-                label="Analog"
-                hide-details
-                dense
-              ></v-checkbox>
-              <v-checkbox
-                v-model="selectedFace"
-                :value="'Digital'"
-                @change="filter"
-                color="accent"
-                label="Digital"
-                hide-details
-                dense
-              ></v-checkbox>
-              <v-checkbox
-                v-model="selectedFace"
-                :value="'Chronograph'"
-                @change="filter"
-                color="accent"
-                label="Chronograph"
-                hide-details
-                dense
               ></v-checkbox>
             </v-container>
             <v-card-title class="pb-0">Movement</v-card-title>
@@ -133,7 +83,7 @@
                 v-model="selectedMovements"
                 :value="'Automatic & Mechanical'"
                 @change="filter"
-                color="accent"
+                :color="$vuetify.theme.dark ? 'white' : 'black'"
                 label="Automatic & Mechanical"
                 hide-details
                 dense
@@ -142,7 +92,7 @@
                 v-model="selectedMovements"
                 :value="'Quartz'"
                 @change="filter"
-                color="accent"
+                :color="$vuetify.theme.dark ? 'white' : 'black'"
                 label="Quartz"
                 hide-details
                 dense
@@ -151,7 +101,7 @@
                 v-model="selectedMovements"
                 :value="'Solar'"
                 @change="filter"
-                color="accent"
+                :color="$vuetify.theme.dark ? 'white' : 'black'"
                 label="Solar"
                 hide-details
                 dense
@@ -163,7 +113,7 @@
                 v-model="selectedGender"
                 :value="'M'"
                 @change="filter"
-                color="accent"
+                :color="$vuetify.theme.dark ? 'white' : 'black'"
                 label="Men"
                 hide-details
                 dense
@@ -172,7 +122,7 @@
                 v-model="selectedGender"
                 :value="'W'"
                 @change="filter"
-                color="accent"
+                :color="$vuetify.theme.dark ? 'white' : 'black'"
                 label="Women"
                 hide-details
                 dense
@@ -181,7 +131,7 @@
                 v-model="selectedGender"
                 :value="'U'"
                 @change="filter"
-                color="accent"
+                :color="$vuetify.theme.dark ? 'white' : 'black'"
                 label="Unisex"
                 hide-details
                 dense
