@@ -2,7 +2,29 @@
   <v-container>
     <div class="row">
       <div class="col-md-5 col-sm-5 col-xs-12">
-        <v-carousel>
+        <v-carousel hide-delimiters
+          ><template v-slot:prev="{ on, attrs }">
+            <v-btn
+              fab
+              small
+              color="accent"
+              v-bind="attrs"
+              v-on="on"
+              :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+              ><v-icon>mdi-chevron-left-circle</v-icon></v-btn
+            >
+          </template>
+          <template v-slot:next="{ on, attrs }">
+            <v-btn
+              fab
+              small
+              color="accent"
+              v-bind="attrs"
+              v-on="on"
+              :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+              ><v-icon>mdi-chevron-right-circle</v-icon></v-btn
+            >
+          </template>
           <v-carousel-item
             v-for="(image, index) in selectedProduct.imgs"
             :key="index"
@@ -40,6 +62,7 @@
           ></v-text-field>
           <v-btn
             class="accent"
+            :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
             rounded
             dense
             @click="addToCart()"
@@ -52,11 +75,15 @@
     <div class="row">
       <div class="col-sm-12 col-xs-12 col-md-12">
         <v-tabs>
-          <v-tab>REVIEWS</v-tab>
+          <v-tab
+            class="accent"
+            :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+            >REVIEWS</v-tab
+          >
 
           <v-tab-item>
             <v-list avatar="true">
-              <v-list-item-group v-model="item" color="primary">
+              <v-list-item-group v-model="item" color="accent">
                 <v-list-item v-for="(item, i) in items" :key="i">
                   <v-list-item-avatar>
                     <v-img
@@ -317,3 +344,4 @@ export default {
   },
 };
 </script>
+<style></style>
