@@ -3,7 +3,7 @@
     <p class="subtitle-1 font-weight-bold pt-3 text-center">
       YOU MIGHT ALSO LIKE
     </p>
-    <v-divider></v-divider>
+    <v-divider class="mb-3"></v-divider>
     <div class="row text-center">
       <div
         class="col-md-2 col-sm-4 col-xs-12 text-center"
