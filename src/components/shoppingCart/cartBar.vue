@@ -83,14 +83,25 @@ export default {
       },
     },
     totalAmount() {
-      if (this.shoppingCartItems.length !== 0) {
+      if (this.shoppingCartItems.length === 1) {
+        return {
+          price:
+            this.shoppingCartItems[0].quantity *
+            this.shoppingCartItems[0].price,
+        };
+      } else if (this.shoppingCartItems.length > 1) {
         var val = this.shoppingCartItems.reduce(function (
           previousValue,
           currentValue
         ) {
+          let prevPrice =
+            parseFloat(previousValue.price) *
+            parseFloat(previousValue.quantity || 1);
+          let currentPrice =
+            parseFloat(currentValue.price) *
+            parseFloat(currentValue.quantity || 1);
           return {
-            price:
-              parseFloat(previousValue.price) + parseFloat(currentValue.price),
+            price: parseFloat(prevPrice) + parseFloat(currentPrice),
           };
         });
         return val;
