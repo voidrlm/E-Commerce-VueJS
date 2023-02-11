@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app right v-model="show" width="400" temporary bottom>
+  <v-navigation-drawer app right v-model="show" :width="400" temporary bottom>
     <template v-slot:prepend>
       <v-list-item>
         <v-list-item-content>
@@ -24,8 +24,10 @@
       <v-list-item
         v-for="addedProducts in shoppingCartItems"
         :key="addedProducts.timestamp"
+        class="rounded-xl ma-3 pa-5"
+        :class="$vuetify.theme.dark ? 'grey darken-4' : 'black'"
       >
-        <v-list-item-avatar>
+        <v-list-item-avatar size="80">
           <v-img :src="addedProducts.imgs[0]"></v-img>
         </v-list-item-avatar>
 
