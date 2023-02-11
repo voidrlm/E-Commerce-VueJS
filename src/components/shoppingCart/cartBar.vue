@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer app right v-model="show" :width="400" temporary bottom>
     <template v-slot:prepend>
-      <v-list-item>
+      <v-list-item class="accent">
         <v-list-item-content>
           <v-list-item-title class="text-center">
             <v-icon class="mr-2">mdi-cart</v-icon>Shopping
@@ -24,20 +24,20 @@
       <v-list-item
         v-for="addedProducts in shoppingCartItems"
         :key="addedProducts.timestamp"
-        class="rounded-xl ma-3 pa-5"
-        :class="$vuetify.theme.dark ? 'grey darken-4' : 'black'"
+        class="rounded-xl ma-3 pa-2"
+        :class="$vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-3'"
       >
-        <v-list-item-avatar size="80">
+        <v-list-item-avatar size="100">
           <v-img :src="addedProducts.imgs[0]"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title
+          <v-list-item-title class="font-weight-bold"
             >{{ addedProducts.brand }}-{{
               addedProducts.name
             }}</v-list-item-title
           >
-          <v-list-item-subtitle
+          <v-list-item-subtitle class="font-weight-bold"
             >$ {{ addedProducts.price }} X
             {{ addedProducts.quantity }}</v-list-item-subtitle
           >
@@ -51,7 +51,7 @@
     </v-list>
     <template v-slot:append v-if="totalAmount">
       <v-divider></v-divider>
-      <v-card-title class="justify-center pa-2"
+      <v-card-title class="justify-center pa-2 accent"
         >Cart Total: $ {{ totalAmount.price }}</v-card-title
       >
     </template>
