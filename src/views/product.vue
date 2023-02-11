@@ -1,45 +1,47 @@
 <template>
   <v-container>
     <div class="row">
-      <div class="col-md-5 col-sm-5 col-xs-12">
-        <v-carousel
-          ><template v-slot:prev="{ on, attrs }">
-            <v-btn
-              fab
-              small
-              color="accent"
-              v-bind="attrs"
-              v-on="on"
-              :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
-              ><v-icon>mdi-chevron-left-circle</v-icon></v-btn
+      <div class="col-xl-4 col-lg-5 col-md-12 col-sm-5 col-xs-12">
+        <div style="width: 500px">
+          <v-carousel
+            ><template v-slot:prev="{ on, attrs }">
+              <v-btn
+                fab
+                small
+                color="accent"
+                v-bind="attrs"
+                v-on="on"
+                :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+                ><v-icon>mdi-chevron-left-circle</v-icon></v-btn
+              >
+            </template>
+            <template v-slot:next="{ on, attrs }">
+              <v-btn
+                fab
+                small
+                color="accent"
+                v-bind="attrs"
+                v-on="on"
+                :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+                ><v-icon>mdi-chevron-right-circle</v-icon></v-btn
+              >
+            </template>
+            <v-carousel-item
+              v-for="(image, index) in selectedProduct.imgs"
+              :key="index"
             >
-          </template>
-          <template v-slot:next="{ on, attrs }">
-            <v-btn
-              fab
-              small
-              color="accent"
-              v-bind="attrs"
-              v-on="on"
-              :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
-              ><v-icon>mdi-chevron-right-circle</v-icon></v-btn
-            >
-          </template>
-          <v-carousel-item
-            v-for="(image, index) in selectedProduct.imgs"
-            :key="index"
-          >
-            <v-img :aspect-ratio="1" :width="500" :src="image"> </v-img
-          ></v-carousel-item>
-        </v-carousel>
+              <v-img :aspect-ratio="1" :width="500" :src="image"> </v-img
+            ></v-carousel-item>
+          </v-carousel>
+        </div>
       </div>
-      <div class="col-md-7 col-sm-7 col-xs-12">
+      <div class="col-xl-8 col-lg-7 col-md-12 col-sm-7 col-xs-12">
         <div class="pl-6">
-          <p class="display-1 mb-0">
+          <p class="display-1 mb-0 font-weight-bold">
             {{ selectedProduct.brand + " " + selectedProduct.name }}
           </p>
           <v-card-actions class="pa-0">
-            <p class="headline font-weight-light pt-3">
+            <p class="headline font-weight-medium pt-3">
               {{
                 selectedProduct.price !== ""
                   ? "$" + selectedProduct.price
@@ -48,7 +50,7 @@
             </p>
             <v-spacer></v-spacer>
           </v-card-actions>
-          <p class="subtitle-1 font-weight-thin">
+          <p class="subtitle-1 font-weight-medium">
             {{ selectedProduct.description }}
           </p>
 
@@ -56,7 +58,7 @@
 
           <v-text-field
             outlined
-            style="width: 100px"
+            :style="'width: 100px'"
             v-model="quantity"
             dense
           ></v-text-field>
@@ -74,42 +76,33 @@
     </div>
     <div class="row">
       <div class="col-sm-12 col-xs-12 col-md-12">
-        <v-tabs>
-          <v-tab
-            class="accent"
-            :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
-            >REVIEWS</v-tab
-          >
+        <p class="subtitle-1 font-weight-bold pt-3 text-center">Reviews</p>
+        <v-divider class="mb-3"></v-divider>
+        <v-list>
+          <v-list-item v-for="(item, i) in reviews" :key="i" class="mx-2">
+            <v-list-item-avatar>
+              <v-img :src="item.avatar"></v-img>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title
+                class="mx-1"
+                v-html="item.title"
+              ></v-list-item-title
+              ><v-rating
+                :value="5"
+                class=""
+                background-color="warning lighten-3"
+                color="warning"
+                dense
+              ></v-rating>
+              <v-list-item-subtitle
+                class="mx-1 font-weight-medium"
+                v-html="item.subtitle"
+              ></v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
 
-          <v-tab-item>
-            <v-list avatar="true">
-              <v-list-item-group v-model="item" color="accent">
-                <v-list-item v-for="(item, i) in reviews" :key="i">
-                  <v-list-item-avatar>
-                    <v-img :src="item.avatar"></v-img>
-                  </v-list-item-avatar>
-                  <v-list-item-content>
-                    <v-list-item-title
-                      class="mx-1"
-                      v-html="item.title"
-                    ></v-list-item-title
-                    ><v-rating
-                      :value="5"
-                      class=""
-                      background-color="warning lighten-3"
-                      color="warning"
-                      dense
-                    ></v-rating>
-                    <v-list-item-subtitle
-                      class="mx-1"
-                      v-html="item.subtitle"
-                    ></v-list-item-subtitle>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-tab-item>
-        </v-tabs>
         <similiarItemsVue :similiarProducts="similiarProducts" />
       </div>
     </div>
@@ -124,7 +117,7 @@ export default {
     quantity: 1,
     products,
     selectedProduct: {},
-    item: 5,
+
     reviews: [
       {
         avatar:
