@@ -76,7 +76,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12 col-xs-12 col-md-12">
-        <p class="subtitle-1 font-weight-bold pt-3 text-center">Reviews</p>
+        <p class="subtitle-1 font-weight-bold pt-3 text-center">REVIEWS</p>
         <v-divider class="mb-3"></v-divider>
         <v-list>
           <v-list-item v-for="(item, i) in reviews" :key="i" class="mx-2">
