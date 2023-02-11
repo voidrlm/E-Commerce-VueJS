@@ -1,6 +1,6 @@
 <template>
   <v-card-text class="pa-0 pt-4" tile outlined>
-    <p class="subtitle-1 font-weight-light pt-3 text-center">
+    <p class="subtitle-1 font-weight-bold pt-3 text-center">
       YOU MIGHT ALSO LIKE
     </p>
     <v-divider></v-divider>
