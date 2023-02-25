@@ -51,8 +51,15 @@
     </v-list>
     <template v-slot:append v-if="totalAmount">
       <v-divider></v-divider>
+
       <v-card-title class="justify-center pa-2 accent"
         >Cart Total: $ {{ totalAmount.price }}</v-card-title
+      >
+      <v-card-title
+        class="justify-center pa-2 accent darken-1"
+        @click="routeToCart"
+      >
+        <v-icon class="mr-1">mdi-cart</v-icon>Checkout</v-card-title
       >
     </template>
   </v-navigation-drawer>
@@ -118,6 +125,13 @@ export default {
         "shoppingCartItems",
         JSON.stringify(this.shoppingCartItems)
       );
+    },
+    routeToCart() {
+      if (this.$router.currentRoute.path !== "/cart") {
+        this.$router.push({
+          path: "/cart",
+        });
+      }
     },
   },
 };
