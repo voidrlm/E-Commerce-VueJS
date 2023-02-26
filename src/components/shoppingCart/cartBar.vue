@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app right v-model="show" :width="400" temporary bottom>
+  <v-navigation-drawer app right v-model="show" :width="400" temporary>
     <template v-slot:prepend>
       <v-list-item class="accent">
         <v-list-item-content>
