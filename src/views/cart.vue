@@ -116,7 +116,28 @@
 <script>
 export default {
   name: "products-component",
-  data: () => ({}),
+  data: () => ({ shippingCharges: 0 }),
+  computed: {
+    totalAmount() {
+      let shoppingCartItems = this.$store.getters.shoppingCart;
+
+      var val = shoppingCartItems.reduce(function (
+        previousValue,
+        currentValue
+      ) {
+        let prevPrice =
+          parseFloat(previousValue.price) *
+          parseFloat(previousValue.quantity || 1);
+        let currentPrice =
+          parseFloat(currentValue.price) *
+          parseFloat(currentValue.quantity || 1);
+        return {
+          price: parseFloat(prevPrice + currentPrice).toFixed(2),
+        };
+      });
+      return val;
+    },
+  },
   methods: {
     showProductView(product) {
       this.$router.push({
