@@ -21,15 +21,20 @@
                   <tr
                     v-for="(product, index) in $store.getters.shoppingCart"
                     :key="index"
-                    @click="showProductView(product)"
-                    style="cursor: pointer"
                   >
                     <td class="text-center">
                       <v-list-item>
                         <v-list-item-avatar size="80">
-                          <v-img :src="product.imgs[0]"></v-img>
+                          <v-img
+                            :src="product.imgs[0]"
+                            @click="showProductView(product)"
+                            style="cursor: pointer"
+                          ></v-img>
                         </v-list-item-avatar>
-                        <v-list-item-content>
+                        <v-list-item-content
+                          @click="showProductView(product)"
+                          style="cursor: pointer"
+                        >
                           <v-list-item-title
                             >{{ product.brand }}
                           </v-list-item-title>
