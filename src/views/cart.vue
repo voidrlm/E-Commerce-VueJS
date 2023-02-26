@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-container>
-      <p class="text-h5 font-weight-medium text-center pa-4">SHOPPING CART</p>
+    <v-container fluid>
+      <p class="text-h5 font-weight-medium text-center pa-1">SHOPPING CART</p>
 
-      <v-row>
+      <v-row v-if="$store.getters.shoppingCart.length !== 0">
         <v-col :cols="12" md="8" sm="12">
           <v-card class="rounded-xl">
             <v-simple-table>
@@ -111,6 +111,12 @@
           >
         </v-col>
       </v-row>
+      <div v-else class="text-center text-h6">
+        <div>You have no added items in your cart.</div>
+        <v-btn class="accent ma-5 rounded-xl" large @click="routeToDashboard"
+          >Start shopping</v-btn
+        >
+      </div>
     </v-container>
   </div>
 </template>
@@ -140,6 +146,13 @@ export default {
     },
   },
   methods: {
+    routeToDashboard() {
+      if (this.$router.currentRoute.path !== "/dashboard") {
+        this.$router.push({
+          path: "/dashboard",
+        });
+      }
+    },
     showProductView(product) {
       this.$router.push({
         path: "/product/" + product.id,
