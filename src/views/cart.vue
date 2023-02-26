@@ -58,7 +58,12 @@
                       }}
                     </td>
                     <td class="text-center">
-                      <v-btn icon><v-icon>mdi-close-circle</v-icon></v-btn>
+                      <v-btn
+                        icon
+                        @click="removeFromCart(product)"
+                        class="red--text"
+                        ><v-icon>mdi-close-circle</v-icon></v-btn
+                      >
                     </td>
                   </tr>
                 </tbody>
@@ -113,6 +118,15 @@ export default {
       this.$router.push({
         path: "/product/" + product.id,
       });
+    },
+    removeFromCart(product) {
+      let shoppingCartItems = this.$store.getters.shoppingCart.filter(function (
+        item
+      ) {
+        return product.timestamp !== item.timestamp;
+      });
+
+      this.$store.dispatch("setShoppingCartData", shoppingCartItems);
     },
   },
 };
