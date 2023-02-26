@@ -173,35 +173,17 @@ export default {
   methods: {
     addToCart() {
       let shoppingCartItems = [];
-      if (
-        localStorage.getItem("shoppingCartItems") !== null &&
-        JSON.parse(localStorage.getItem("shoppingCartItems")).length !== 0
-      ) {
-        shoppingCartItems = JSON.parse(
-          localStorage.getItem("shoppingCartItems")
-        );
-        let product = {
-          ...this.selectedProduct,
-          quantity: this.quantity,
-          timestamp: new Date().getTime(),
-        };
-        shoppingCartItems.push(product);
-        localStorage.setItem(
-          "shoppingCartItems",
-          JSON.stringify(shoppingCartItems)
-        );
-      } else {
-        let product = {
-          ...this.selectedProduct,
-          quantity: this.quantity,
-          timestamp: new Date().getTime(),
-        };
-        shoppingCartItems.push(product);
-        localStorage.setItem(
-          "shoppingCartItems",
-          JSON.stringify(shoppingCartItems)
-        );
-      }
+      shoppingCartItems =
+        this.$store.getters.shoppingCart.length !== 0
+          ? this.$store.getters.shoppingCart
+          : [];
+      let product = {
+        ...this.selectedProduct,
+        quantity: this.quantity,
+        timestamp: new Date().getTime(),
+      };
+      shoppingCartItems.push(product);
+      this.$store.dispatch("setShoppingCartData", shoppingCartItems);
     },
   },
 };
