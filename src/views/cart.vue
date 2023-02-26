@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <p class="text-h5 font-weight-light text-center pa-4">SHOPPING CART</p>
+      <p class="text-h5 font-weight-medium text-center pa-4">SHOPPING CART</p>
 
       <v-row>
         <v-col :cols="12" md="8" sm="12">
@@ -83,27 +83,28 @@
                 <tbody>
                   <tr>
                     <td>Order Subtotal</td>
-                    <td class="text-right" style="width: 50px">$160.00</td>
+                    <td class="text-right" style="width: 100px">
+                      $ {{ totalAmount["price"] }}
+                    </td>
                   </tr>
                   <tr>
                     <td>Shipping Charges</td>
-                    <td class="text-right" style="width: 50px">$10.00</td>
+                    <td class="text-right" style="width: 100px">
+                      $ {{ parseFloat(shippingCharges).toFixed(2) }}
+                    </td>
                   </tr>
-                  <tr>
-                    <td>Tax</td>
-                    <td class="text-right" style="width: 50px">$5.00</td>
-                  </tr>
+
                   <tr>
                     <td>Total</td>
-                    <td class="text-right" style="width: 50px">
-                      <b>$175.00</b>
+                    <td class="text-right" style="width: 100px">
+                      <b>$ {{ totalAmount["price"] + shippingCharges }}</b>
                     </td>
                   </tr>
                 </tbody>
               </template>
             </v-simple-table>
             <div class="text-center">
-              <v-btn class="primary white--text mt-5" outlined
+              <v-btn class="accent rounded-xl black--text mt-5"
                 >PROCEED TO PAY</v-btn
               >
             </div></v-card
@@ -150,7 +151,6 @@ export default {
       ) {
         return product.timestamp !== item.timestamp;
       });
-
       this.$store.dispatch("setShoppingCartData", shoppingCartItems);
     },
   },
