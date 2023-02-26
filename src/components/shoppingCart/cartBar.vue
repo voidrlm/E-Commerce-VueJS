@@ -58,6 +58,7 @@
       <v-card-title
         class="justify-center pa-2 accent darken-1"
         @click="routeToCart"
+        style="cursor: pointer"
       >
         <v-icon class="mr-1">mdi-cart</v-icon>Checkout</v-card-title
       >
