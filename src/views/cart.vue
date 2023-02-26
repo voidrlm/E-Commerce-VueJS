@@ -2,59 +2,62 @@
   <div>
     <v-container>
       <p class="text-h5 font-weight-light text-center pa-4">SHOPPING CART</p>
+
       <v-row>
         <v-col :cols="12" md="9" sm="12">
-          <v-simple-table>
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-center"></th>
-                  <th class="text-center">PRICE</th>
-                  <th class="text-center">QUANTITY</th>
-                  <th class="text-center">TOTAL</th>
-                  <th class="text-center"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="(product, index) in $store.getters.shoppingCart"
-                  :key="index"
-                >
-                  <td class="text-center">
-                    <v-list-item>
-                      <v-list-item-avatar size="80">
-                        <v-img :src="product.imgs[0]"></v-img>
-                      </v-list-item-avatar>
-                      <v-list-item-content>
-                        <v-list-item-title
-                          >{{ product.brand }}
-                        </v-list-item-title>
-                        <v-list-item-subtitle>{{
-                          product.name
-                        }}</v-list-item-subtitle>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </td>
-                  <td class="text-center">
-                    $
-                    {{ parseFloat(product.price).toFixed(2) }}
-                  </td>
-                  <td class="text-center">
-                    {{ product.quantity }}
-                  </td>
-                  <td class="text-center">
-                    $
-                    {{
-                      parseFloat(product.price * product.quantity).toFixed(2)
-                    }}
-                  </td>
-                  <td class="text-center">
-                    <v-btn icon><v-icon>mdi-close-circle</v-icon></v-btn>
-                  </td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
+          <v-card class="rounded-xl">
+            <v-simple-table>
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-center"></th>
+                    <th class="text-center">PRICE</th>
+                    <th class="text-center">QUANTITY</th>
+                    <th class="text-center">TOTAL</th>
+                    <th class="text-center"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="(product, index) in $store.getters.shoppingCart"
+                    :key="index"
+                  >
+                    <td class="text-center">
+                      <v-list-item>
+                        <v-list-item-avatar size="80">
+                          <v-img :src="product.imgs[0]"></v-img>
+                        </v-list-item-avatar>
+                        <v-list-item-content>
+                          <v-list-item-title
+                            >{{ product.brand }}
+                          </v-list-item-title>
+                          <v-list-item-subtitle>{{
+                            product.name
+                          }}</v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </td>
+                    <td class="text-center">
+                      $
+                      {{ parseFloat(product.price).toFixed(2) }}
+                    </td>
+                    <td class="text-center">
+                      {{ product.quantity }}
+                    </td>
+                    <td class="text-center">
+                      $
+                      {{
+                        parseFloat(product.price * product.quantity).toFixed(2)
+                      }}
+                    </td>
+                    <td class="text-center">
+                      <v-btn icon><v-icon>mdi-close-circle</v-icon></v-btn>
+                    </td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table></v-card
+          >
         </v-col>
         <v-col :cols="12" md="3" sm="12" style="background-color: lightgray">
           <p class="headline">Order Summary</p>
@@ -100,3 +103,10 @@ export default {
   data: () => ({}),
 };
 </script>
+<style lang="scss">
+tbody {
+  tr:hover {
+    background-color: transparent !important;
+  }
+}
+</style>
