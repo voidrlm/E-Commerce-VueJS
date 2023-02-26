@@ -109,7 +109,7 @@ export default {
             parseFloat(currentValue.price) *
             parseFloat(currentValue.quantity || 1);
           return {
-            price: parseFloat(prevPrice) + parseFloat(currentPrice),
+            price: parseFloat(prevPrice + currentPrice).toFixed(2),
           };
         });
         return val;
