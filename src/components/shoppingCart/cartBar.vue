@@ -129,6 +129,8 @@ export default {
         this.$router.push({
           path: "/cart",
         });
+      } else {
+        this.show = !this.show;
       }
     },
   },
