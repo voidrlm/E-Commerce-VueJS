@@ -122,10 +122,7 @@ export default {
         return item.timestamp !== obj.timestamp;
       });
 
-      localStorage.setItem(
-        "shoppingCartItems",
-        JSON.stringify(this.shoppingCartItems)
-      );
+      this.$store.dispatch("setShoppingCartData", this.shoppingCartItems);
     },
     routeToCart() {
       if (this.$router.currentRoute.path !== "/cart") {
