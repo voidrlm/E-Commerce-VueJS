@@ -104,7 +104,10 @@
               </template>
             </v-simple-table>
             <div class="text-center">
-              <v-btn class="accent rounded-xl black--text mt-5"
+              <v-btn
+                elevation="0"
+                class="accent rounded-xl mt-5"
+                :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
                 >PROCEED TO PAY</v-btn
               >
             </div></v-card
