@@ -1,8 +1,10 @@
 <template>
   <v-container>
     <div class="row">
-      <div class="col-xl-4 col-lg-5 col-md-12 col-sm-5 col-xs-12">
-        <div style="width: 500px">
+      <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+        <div
+          :style="$vuetify.breakpoint.xsOnly ? 'width: 350px' : 'width: 500px'"
+        >
           <v-carousel
             ><template v-slot:prev="{ on, attrs }">
               <v-btn
@@ -35,7 +37,7 @@
           </v-carousel>
         </div>
       </div>
-      <div class="col-xl-8 col-lg-7 col-md-12 col-sm-7 col-xs-12">
+      <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12 col-xs-12">
         <div class="pl-6">
           <p class="display-1 mb-0 font-weight-bold">
             {{ selectedProduct.brand + " " + selectedProduct.name }}
