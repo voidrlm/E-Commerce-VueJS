@@ -21,6 +21,8 @@
                   <tr
                     v-for="(product, index) in $store.getters.shoppingCart"
                     :key="index"
+                    @click="showProductView(product)"
+                    style="cursor: pointer"
                   >
                     <td class="text-center">
                       <v-list-item>
@@ -101,6 +103,13 @@
 export default {
   name: "products-component",
   data: () => ({}),
+  methods: {
+    showProductView(product) {
+      this.$router.push({
+        path: "/product/" + product.id,
+      });
+    },
+  },
 };
 </script>
 <style lang="scss">
