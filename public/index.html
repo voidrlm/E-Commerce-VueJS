@@ -1,19 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CHRONOS - Discover exceptional luxury timepieces from the world's finest watchmakers"
+    />
+    <meta name="theme-color" content="#0A0A0A" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>CHRONOS | Luxury Timepieces</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Luxury Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Roboto for Vuetify -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"
+    />
+
+    <style>
+      /* Initial Loading State */
+      body {
+        background: #0a0a0a;
+      }
+      #app-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a0a0a;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      #app-loader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .loader-content {
+        text-align: center;
+      }
+      .loader-brand {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        color: #d4af37;
+        letter-spacing: 0.3em;
+        margin-bottom: 24px;
+      }
+      .loader-line {
+        width: 120px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >CHRONOS requires JavaScript to deliver the full luxury experience.
+        Please enable it to continue.</strong
+      >
     </noscript>
+
+    <!-- App Loading Screen -->
+    <div id="app-loader">
+      <div class="loader-content">
+        <div class="loader-brand">CHRONOS</div>
+        <div class="loader-line"></div>
+      </div>
+    </div>
+
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+
+    <script>
+      // Remove loader when app is ready
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          var loader = document.getElementById("app-loader");
+          if (loader) {
+            loader.classList.add("fade-out");
+            setTimeout(function () {
+              loader.remove();
+            }, 500);
+          }
+        }, 800);
+      });
+    </script>
   </body>
 </html>

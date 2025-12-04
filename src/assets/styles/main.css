@@ -1,0 +1,574 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CHRONOS - A Premium Watch Store Experience
+   An artistic, immersive design language
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CUSTOM FONTS & ROOT VARIABLES
+   ───────────────────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --font-display: "Playfair Display", serif;
+  --font-elegant: "Cormorant Garamond", serif;
+  --font-modern: "Montserrat", sans-serif;
+
+  /* Luxury Gold Palette */
+  --gold-light: #d4af37;
+  --gold-main: #c5a028;
+  --gold-dark: #a68a2a;
+  --gold-muted: rgba(212, 175, 55, 0.3);
+
+  /* Deep Luxury Darks */
+  --noir: #0a0a0a;
+  --charcoal: #1a1a1a;
+  --graphite: #2a2a2a;
+  --slate: #3a3a3a;
+
+  /* Ethereal Lights */
+  --pearl: #fafafa;
+  --ivory: #f5f5f0;
+  --cream: #f0ede5;
+  --mist: #e8e5dd;
+
+  /* Accent Colors */
+  --sapphire: #1e3a5f;
+  --emerald: #1b4332;
+  --ruby: #722f37;
+  --amethyst: #4a2c6a;
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    #f5e7a3 50%,
+    #d4af37 100%
+  );
+  --gradient-dark: linear-gradient(
+    180deg,
+    #0a0a0a 0%,
+    #1a1a1a 50%,
+    #0a0a0a 100%
+  );
+  --gradient-luxury: linear-gradient(
+    135deg,
+    #0a0a0a 0%,
+    #1a1a1a 25%,
+    #2a2a2a 50%,
+    #1a1a1a 75%,
+    #0a0a0a 100%
+  );
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.15);
+  --shadow-dramatic: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-glow-gold: 0 0 40px rgba(212, 175, 55, 0.3);
+
+  /* Animations */
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-dramatic: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   GLOBAL RESETS & BASE STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-modern);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-main);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TYPOGRAPHY SYSTEM
+   ───────────────────────────────────────────────────────────────────────────── */
+.text-display {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.02em;
+}
+
+.text-elegant {
+  font-family: var(--font-elegant) !important;
+  letter-spacing: 0.05em;
+}
+
+.text-modern {
+  font-family: var(--font-modern) !important;
+  letter-spacing: 0.1em;
+}
+
+.text-gold {
+  color: var(--gold-main) !important;
+}
+
+.text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ARTISTIC ANIMATIONS
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reveal-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s var(--ease-dramatic) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s var(--ease-dramatic) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s var(--ease-luxury) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.3),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Staggered Animation Delays */
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.2s;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+}
+.delay-4 {
+  animation-delay: 0.4s;
+}
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LUXURY CARD COMPONENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+.card-luxury {
+  position: relative;
+  background: var(--charcoal);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.5s var(--ease-luxury);
+}
+
+.card-luxury::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-gold);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-luxury);
+}
+
+.card-luxury:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.card-luxury:hover::before {
+  opacity: 1;
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+
+.card-glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BUTTON STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+.btn-luxury {
+  position: relative;
+  padding: 16px 48px;
+  font-family: var(--font-modern);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--noir);
+  background: var(--gradient-gold);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-luxury);
+}
+
+.btn-luxury::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s var(--ease-luxury);
+}
+
+.btn-luxury:hover::before {
+  left: 100%;
+}
+
+.btn-luxury:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.btn-outline-gold {
+  padding: 16px 48px;
+  font-family: var(--font-modern);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-main);
+  background: transparent;
+  border: 1px solid var(--gold-main);
+  cursor: pointer;
+  transition: all 0.4s var(--ease-luxury);
+}
+
+.btn-outline-gold:hover {
+  color: var(--noir);
+  background: var(--gold-main);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DECORATIVE ELEMENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+.divider-gold {
+  width: 80px;
+  height: 1px;
+  background: var(--gradient-gold);
+  margin: 24px auto;
+}
+
+.divider-gold-wide {
+  width: 200px;
+  height: 1px;
+  background: var(--gradient-gold);
+  margin: 32px auto;
+}
+
+.corner-accent {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gold-main);
+}
+
+.corner-accent.top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-accent.top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-accent.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-accent.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   HERO SECTION STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 40px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PRODUCT CARD HOVER EFFECTS
+   ───────────────────────────────────────────────────────────────────────────── */
+.product-card-artistic {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product-card-artistic .product-image {
+  transition: transform 0.8s var(--ease-dramatic);
+}
+
+.product-card-artistic:hover .product-image {
+  transform: scale(1.1);
+}
+
+.product-card-artistic .product-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  transform: translateY(100%);
+  transition: transform 0.5s var(--ease-luxury);
+}
+
+.product-card-artistic:hover .product-overlay {
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   NAVIGATION STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+.nav-luxury {
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.nav-link-luxury {
+  position: relative;
+  font-family: var(--font-modern);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pearl);
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link-luxury::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold-main);
+  transition: width 0.3s var(--ease-luxury);
+}
+
+.nav-link-luxury:hover {
+  color: var(--gold-main);
+}
+
+.nav-link-luxury:hover::after {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LOADING & TRANSITIONS
+   ───────────────────────────────────────────────────────────────────────────── */
+.page-transition-enter-active,
+.page-transition-leave-active {
+  transition: all 0.5s var(--ease-luxury);
+}
+
+.page-transition-enter,
+.page-transition-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE ADJUSTMENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero-section {
+    min-height: 500px;
+  }
+
+  .btn-luxury,
+  .btn-outline-gold {
+    padding: 12px 32px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    min-height: 400px;
+  }
+
+  .divider-gold-wide {
+    width: 120px;
+  }
+}
